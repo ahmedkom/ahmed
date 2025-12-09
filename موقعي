@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأسطورة TV | الرئيسية</title>
+    <meta name="description" content="الأسطورة TV الرئيسية">
+    <meta name="author" content="Ostora TV">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.ostora.tv" />
+    <meta property="og:title" content="الأسطورة TV">
+    <meta property="og:description" content="الأسطورة TV الرئيسية">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.ostora.tv">
+    <meta property="og:image" content="https://www.ostora.tv/assets/images/logo.jpg">
+    <meta property="og:locale" content="ar">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="الأسطورة TV">
+    <meta name="twitter:description" content="الأسطورة TV الرئيسية">
+    <meta name="twitter:image" content="https://www.ostora.tv/assets/images/logo.jpg">
+    <link rel="alternate" href="https://www.ostora.tv?lang=en" hreflang="en">
+    <link rel="alternate" href="https://www.ostora.tv?lang=ar" hreflang="ar">
+    <link rel="alternate" href="https://www.ostora.tv?lang=es" hreflang="es">
+    <link rel="alternate" href="https://www.ostora.tv?lang=fr" hreflang="fr">
+    <link rel="alternate" href="https://www.ostora.tv?lang=tr" hreflang="tr">
+    <link rel="alternate" href="https://www.ostora.tv?lang=fa" hreflang="fa">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Ostora TV",
+      "url": "https://www.ostora.tv",
+      "logo": "https://www.ostora.tv/assets/images/logo.jpg",
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "telephone": "+1-800-000-0000",
+        "contactType": "Customer Service",
+        "availableLanguage": ["English", "Arabic", "Spanish", "French", "Turkish", "Persian"]
+      }]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Ostora TV",
+      "operatingSystem": "Android, iOS, Windows, MacOS",
+      "applicationCategory": "Entertainment",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "url": "https://www.ostora.tv/downloads.php?lang=ar"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "5991799"
+      },
+      "downloadUrl": "https://www.ostora.tv/downloads.php?lang=ar",
+      "author": {
+        "@type": "Organization",
+        "name": "Ostora TV"
+      }
+    }
+    </script>
+    
+    
+    <style type="text/css">@font-face {font-family:Cairo;font-style:normal;font-weight:400;src:url(/cf-fonts/v/cairo/5.0.18/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Cairo;font-style:normal;font-weight:400;src:url(/cf-fonts/v/cairo/5.0.18/arabic/wght/normal.woff2);unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0898-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC;font-display:swap;}@font-face {font-family:Cairo;font-style:normal;font-weight:400;src:url(/cf-fonts/v/cairo/5.0.18/latin-ext/wght/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Cairo;font-style:normal;font-weight:700;src:url(/cf-fonts/v/cairo/5.0.18/latin-ext/wght/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Cairo;font-style:normal;font-weight:700;src:url(/cf-fonts/v/cairo/5.0.18/arabic/wght/normal.woff2);unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0898-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC;font-display:swap;}@font-face {font-family:Cairo;font-style:normal;font-weight:700;src:url(/cf-fonts/v/cairo/5.0.18/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}</style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.rtl.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://www.ostora.tv/assets/css/styles.css">
+</head>
+<body id="top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+    <div class="container">
+        <a class="navbar-brand" href="https://www.ostora.tv/?lang=ar">
+            الأسطورة TV        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.ostora.tv/index.php?lang=ar">الرئيسية</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.ostora.tv/downloads.php?lang=ar">التحميل</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.ostora.tv/features.php?lang=ar">الميزات</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.ostora.tv/faq.php?lang=ar">الأسئلة الشائعة</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.ostora.tv/blog.php?lang=ar">المدونة</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.ostora.tv/about.php?lang=ar">من نحن</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.ostora.tv/contact.php?lang=ar">اتصل بنا</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" 
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        اللغة                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                        <li><a class="dropdown-item" href="?lang=ar">العربية</a></li>
+                        <li><a class="dropdown-item" href="?lang=en">English</a></li>
+                        <li><a class="dropdown-item" href="?lang=es">Español</a></li>
+                        <li><a class="dropdown-item" href="?lang=fr">Français</a></li>
+                        <li><a class="dropdown-item" href="?lang=tr">Türkçe</a></li>
+                        <li><a class="dropdown-item" href="?lang=fa">فارسی</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<header class="text-center" style="padding: 10vh 0px 8vh 0px;">
+    <div class="container">
+        <h1>مرحبا بكم في الأسطورة TV!</h1>
+        <p class="m-3">قم بتنزيل تطبيق الأسطورة تي في الآن واستمتع بمشاهدة البث المباشر والمحتوى الترفيهي بجودة عالية.</p>
+        <a href="downloads.php?lang=ar" class="btn btn-danger btn-lg m-3">التحميل</a>
+    </div>
+</header>
+
+<section class="features">
+    <div class="container">
+        <h2 class="text-center mb-5">مميزات تطبيق الأسطورة</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="feature">
+                    <i class="fas fa-rocket"></i>
+                    <h4>بث سريع عالي الجودة</h4>
+                    <p>استمتع بالبث بدون انقطاع مع منصتنا القوية.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h4>دعم متعدد لأنظمة التشغيل</h4>
+                    <p>الوصول إلى الأسطورة TV على مختلف الأجهزة بما في ذلك الهواتف الذكية والتلفزيونات وأجهزة الكمبيوتر.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature">
+                    <i class="fas fa-user-friends"></i>
+                    <h4>تفاعل المجتمع</h4>
+                    <p>انضم إلى مجتمعنا وتفاعل مع المشاهدين الآخرين من خلال ميزات تفاعلية.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="downloads">
+    <div class="container">
+        <h2 class="text-center mb-5">التحميل</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="download-card">
+                    <i class="fab fa-android"></i>
+                    <h4 class="mt-3">تحميل للاندرويد موبايل جوال</h4>
+                    <a href="https://www.ostora.tv/downloads/android_mobile.php?lang=ar" class="btn btn-danger mt-3">قم بالتحميل الآن</a>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="download-card">
+                    <i class="fas fa-tv"></i>
+                    <h4 class="mt-3">تحميل لأجهزة التلفزيون الذكية الأندرويد</h4>
+                    <a href="https://www.ostora.tv/downloads/android_tv.php?lang=ar" class="btn btn-danger mt-3">قم بالتحميل الآن</a>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="download-card">
+                    <i class="fas fa-box"></i>
+                    <h4 class="mt-3">تحميل لاجهزة التى فى بوكس</h4>
+                    <a href="https://www.ostora.tv/downloads/tvbox.php?lang=ar" class="btn btn-danger mt-3">قم بالتحميل الآن</a>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="download-card">
+                    <i class="fab fa-apple"></i>
+                    <h4 class="mt-3">تحميل لأجهزة iOS</h4>
+                    <a href="https://www.ostora.tv/downloads/ios.php?lang=ar" class="btn btn-danger mt-3">قم بالتحميل الآن</a>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="download-card">
+                    <i class="fab fa-windows"></i>
+                    <h4 class="mt-3">تحميل لنظام Windows</h4>
+                    <a href="https://www.ostora.tv/downloads/windows.php?lang=ar" class="btn btn-danger mt-3">قم بالتحميل الآن</a>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="download-card">
+                    <i class="fab fa-apple"></i>
+                    <h4 class="mt-3">تحميل لنظام macOS</h4>
+                    <a href="https://www.ostora.tv/downloads/macos.php?lang=ar" class="btn btn-danger mt-3">قم بالتحميل الآن</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container pb-5">
+    <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    كيف يمكنني تثبيت الأسطورة TV؟                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    اتبع تعليمات التنزيل والتثبيت المقدمة في صفحة التنزيلات لجهازك المحدد.                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    هل يعمل تطبيق Ostora TV على الهواتف الذكية بكل اصداراتها؟                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    نعم إن التطبيق يعمل على كل أنظمة الهواتف الذكية وبكل قدراتها ولكن من الأفضل أن تكون قدرات تلك الهواتف متوسطة وجيدة لتكون لمشاهدة دون تقطيع.                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    هل يدعم برنامج الأسطورة تيفي كل لغات العالم؟                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    انه تطبيق عربي تماما، فهو يدعم اللغة العربية فقط ولا يتوافر بأي لغة آخرى نهائيا.                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    هل تجد في تطبيق تيفي الاسطورة TV المباريات المسجلة؟                </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    نعم بالإمكان متابعة ما تريد من مباريات جرت سابقا ولم تتمكن من مشاهدة البث المباشر لها.                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFive">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    كيف نعمل على تحميل Ostora TV تيفي؟                </button>
+            </h2>
+            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    من الرابط المتوافر بالمقال والعمل على تنزيله من قسم الاعدادات وتحديدا من مصادر غير معروفة، لا نه تطبيق مهكر فلن تجدوه في المواقع الرسمية غوغل بلاي واب ستور.                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingSix">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                    ما هو برنامج الأسطورة TV؟                </button>
+            </h2>
+            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    ان هذا البرنامج مخصص لبث المباريات المباشرة من القنوات المشفرة والمسموح بها، وهو يضم مجموعة كبيرة من القنوات الرياضية العربية والعالمية، إضافة لجميع القنوات المتنوعة منها الترفيهية والإخبارية وغير ذلك من أنواع القنوات الموجودة في تطبيق الأسطورة TV، وفي النهاية نقول إن هذا التطبيق العربي اهتم برغبات الأخوة المستخدمين في العالم وخاصة للناس في الوطن العربي لقضاء أوقاتا ممتعة فيما يشاهدونه من محتوى الأسطورة TV في القنوات المتنوعة.                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-black text-white pt-5 pb-4">
+    <div class="container text-md-left">
+        <div class="row text-md-left">
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-white">من نحن</h5>
+                <p>الأسطورة TV ملتزمة بتقديم خدمات بث عالية الجودة لمستخدمينا. مهمتنا هي توفير تجارب مشاهدة سلسة وممتعة عبر جميع المنصات.</p>
+            </div>
+
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-white">روابط سريعة</h5>
+                <p><a href="index.php?lang=ar" class="text-white" style="text-decoration: none;">الرئيسية</a></p>
+                <p><a href="about.php?lang=ar" class="text-white" style="text-decoration: none;">من نحن</a></p>
+                <p><a href="features.php?lang=ar" class="text-white" style="text-decoration: none;">الميزات</a></p>
+                <p><a href="downloads.php?lang=ar" class="text-white" style="text-decoration: none;">التحميل</a></p>
+                <p><a href="contact.php?lang=ar" class="text-white" style="text-decoration: none;">اتصل بنا</a></p>
+            </div>
+
+
+            <div class="col-md-5 col-lg-5 col-xl-5 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-white">الاشتراك في النشرة الإخبارية</h5>
+                <form action="subscribe.php?lang=ar" method="POST">
+                    <div class="input-group">
+                        <input type="email" name="subscriber_email" class="form-control" placeholder="أدخل بريدك الإلكتروني" aria-label="أدخل بريدك الإلكتروني" aria-describedby="button-subscribe" required>
+                        <button class="btn btn-danger" type="submit" id="button-subscribe">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+                <small class="form-text text-white mt-2">Stay updated with our latest news and offers.</small>
+            </div>
+        </div>
+
+        <hr class="mb-4">
+
+        <div class="row align-items-center">
+            <div class="col-md-8 col-lg-8 col-xl-8 mx-auto">
+                <p class="text-white">© 2025 <strong>الأسطورة TV</strong>. All Rights Reserved.</p>
+            </div> 
+            <div class="col-md-4 col-lg-4 col-xl-4 mx-auto">
+                <p class="text-white">
+                    <a href="privacy.php?lang=ar" class="text-white me-3" style="text-decoration: none;">Privacy Policy</a>
+                    <a href="terms.php?lang=ar" class="text-white" style="text-decoration: none;">Terms of Service</a>
+                </p>
+            </div>
+
+            <div class="col-md-5 col-lg-4">
+                <div class="text-end">
+                    <a href="#top" class="text-white" style="text-decoration: none;">
+                        <i class="fas fa-arrow-circle-up fa-2x"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js" type="99fd249a6a6c503c469c5645-tex
