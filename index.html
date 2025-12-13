@@ -178,7 +178,7 @@
         @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(255, 59, 48, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 59, 48, 0); } }
 
         /* ========================================================
-           🎧 تصميم واجهة ChatGPT Voice Mode (Sharp Style)
+           🎧 تصميم واجهة ChatGPT Voice Mode (Sharp / Solid)
            ======================================================== */
         #voice-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -223,7 +223,7 @@
             box-shadow: 0 0 10px rgba(255,255,255,0.1);
         }
 
-        /* الطبقات (حادة وليست ضبابية) */
+        /* الطبقات */
         .blob:nth-child(1) { 
             animation: morph 6s infinite ease-in-out; 
             z-index: 2;
@@ -425,13 +425,11 @@
         });
 
         // ==========================================
-        //  FIX: تحسين كود الصوت بدون رسائل خطأ
+        //  FIX: منطق الصوت المصحح للأندرويد
         // ==========================================
         
         function startVoiceMode() {
-            // تحقق بسيط ولكن بدون إيقاف كامل
             if (!('webkitSpeechRecognition' in window)) {
-                // لن نعرض رسالة خطأ، سنحاول الاستمرار
                 console.warn("Speech API missing");
             }
             isVoiceModeActive = true;
@@ -440,6 +438,13 @@
             isMuted = false;
             updateUIState('connecting');
             
+            // "إيقاظ" محرك الصوت فوراً بضغطة زر
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                let dummy = new SpeechSynthesisUtterance("");
+                window.speechSynthesis.speak(dummy);
+            }
+
             setTimeout(() => {
                 startListeningLoop();
             }, 500);
@@ -489,11 +494,10 @@
 
             updateUIState('listening');
 
-            // محاولة إنشاء الكائن في كل مرة لتجنب التجميد
             try {
                 recognitionLoop = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
                 recognitionLoop.lang = 'ar-EG'; 
-                recognitionLoop.continuous = false; // مهم للأندرويد
+                recognitionLoop.continuous = false;
                 recognitionLoop.interimResults = false;
 
                 recognitionLoop.onstart = () => {};
@@ -506,11 +510,9 @@
                     }
                 };
 
-                // تم حذف أي رسائل خطأ للمستخدم هنا
                 recognitionLoop.onerror = (e) => {
                     console.log("Silent Error: ", e.error);
                     if (isVoiceModeActive && !isMuted) {
-                        // إعادة المحاولة بصمت
                         if (e.error !== 'no-speech') {
                             setTimeout(startListeningLoop, 1000);
                         }
@@ -518,8 +520,7 @@
                 };
                 
                 recognitionLoop.onend = () => {
-                     // إعادة تدوير الحلقة إذا لم يتم التقاط شيء
-                    // (يمكن تفعيلها إذا كنت تريد استماع مستمر)
+                    // للحفاظ على الاستمرارية
                 };
 
                 recognitionLoop.start();
@@ -552,13 +553,21 @@
             const cleanText = text.replace(/[*#`]/g, '');
             const utterance = new SpeechSynthesisUtterance(cleanText);
             
+            // اختيار أي صوت عربي متاح، أو استخدام الافتراضي
             const voices = window.speechSynthesis.getVoices();
-            const femaleVoice = voices.find(v => v.lang.includes('ar') && (v.name.includes('Google') || v.name.includes('Salma') || v.name.includes('Laila')));
-            if (femaleVoice) utterance.voice = femaleVoice;
+            const arVoice = voices.find(v => v.lang.includes('ar'));
+            if (arVoice) {
+                utterance.voice = arVoice;
+            }
             
             utterance.lang = 'ar-SA';
             utterance.pitch = 1.0; 
             
+            // إصلاح مشكلة التوقف: إعادة تشغيل المحرك
+            if(window.speechSynthesis.paused) {
+                window.speechSynthesis.resume();
+            }
+
             utterance.onend = () => {
                 if (isVoiceModeActive && !isMuted) {
                     setTimeout(() => {
