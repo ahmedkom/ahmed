@@ -5,162 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>مساعدي الذكي - ChatGPT Style</title>
     
-    <!-- خطوط وأدوات -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- مكتبة تلوين الأكواد -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
 
     <style>
-        :root {
-            --bg-color: #0b141a;
-            --header-bg: #202c33;
-            --sidebar-bg: #111b21;
-            --user-bubble: #005c4b;
-            --ai-bubble: #202c33;
-            --input-bg: #202c33;
-            --text-color: #e9edef;
-            --accent-color: #00a884;
-            --code-bg: #111b21;
-        }
-
+        :root { --bg-color: #0b141a; --header-bg: #202c33; --sidebar-bg: #111b21; --user-bubble: #005c4b; --ai-bubble: #202c33; --input-bg: #202c33; --text-color: #e9edef; --accent-color: #00a884; --code-bg: #111b21; }
         * { box-sizing: border-box; outline: none; -webkit-tap-highlight-color: transparent; }
-
-        body {
-            font-family: 'Tajawal', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            height: 100dvh;
-            display: flex;
-            overflow: hidden;
-        }
-
-        /* --- الشريط الجانبي --- */
-        #sidebar {
-            width: 260px;
-            background-color: var(--sidebar-bg);
-            border-left: 1px solid rgba(255,255,255,0.1);
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s ease;
-            position: absolute;
-            height: 100%;
-            z-index: 100;
-            right: 0;
-            transform: translateX(100%);
-        }
-
-        #sidebar.open { transform: translateX(0); }
-
-        .new-chat-btn {
-            margin: 10px;
-            padding: 10px;
-            background: var(--header-bg);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: var(--text-color);
-            border-radius: 8px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: 0.2s;
-            font-family: inherit;
-        }
-        .new-chat-btn:hover { background: #2a3942; }
-
-        .history-list { flex: 1; overflow-y: auto; padding: 5px 10px; }
-
-        .history-item {
-            padding: 10px;
-            margin-bottom: 5px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #d1d7db;
-            transition: 0.2s;
-            white-space: nowrap;
-            overflow: hidden;
-        }
+        body { font-family: 'Tajawal', sans-serif; background-color: var(--bg-color); color: var(--text-color); margin: 0; padding: 0; height: 100dvh; display: flex; overflow: hidden; }
         
+        /* الشريط الجانبي */
+        #sidebar { width: 260px; background-color: var(--sidebar-bg); border-left: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; transition: transform 0.3s ease; position: absolute; height: 100%; z-index: 100; right: 0; transform: translateX(100%); }
+        #sidebar.open { transform: translateX(0); }
+        .new-chat-btn { margin: 10px; padding: 10px; background: var(--header-bg); border: 1px solid rgba(255,255,255,0.1); color: var(--text-color); border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: 0.2s; font-family: inherit; }
+        .history-list { flex: 1; overflow-y: auto; padding: 5px 10px; }
+        .history-item { padding: 10px; margin-bottom: 5px; border-radius: 6px; cursor: pointer; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; color: #d1d7db; }
         .history-item:hover { background-color: rgba(255,255,255,0.05); }
         .history-item.active { background-color: rgba(0, 168, 132, 0.2); color: var(--accent-color); }
         .history-title { overflow: hidden; text-overflow: ellipsis; flex: 1; }
-
-        .delete-chat-btn { background: none; border: none; color: #8696a0; cursor: pointer; padding: 5px; opacity: 0; transition: 0.2s; }
-        .history-item:hover .delete-chat-btn { opacity: 1; }
+        .delete-chat-btn { background: none; border: none; color: #8696a0; cursor: pointer; padding: 5px; }
         .delete-chat-btn:hover { color: #ff3b30; }
-
-        .overlay {
-            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.5); z-index: 90; display: none;
-        }
+        .overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 90; display: none; }
         .overlay.show { display: block; }
 
-        /* --- المحتوى الرئيسي --- */
-        .main-content {
-            flex: 1; display: flex; flex-direction: column;
-            width: 100%; height: 100%; position: relative;
-        }
-
-        header {
-            background-color: var(--header-bg);
-            padding: 10px 15px;
-            display: flex; align-items: center; gap: 15px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-            z-index: 10;
-        }
-
+        /* المحتوى الرئيسي */
+        .main-content { flex: 1; display: flex; flex-direction: column; width: 100%; height: 100%; position: relative; }
+        header { background-color: var(--header-bg); padding: 10px 15px; display: flex; align-items: center; gap: 15px; box-shadow: 0 1px 3px rgba(0,0,0,0.3); z-index: 10; }
         .menu-btn { background: none; border: none; color: #aebac1; font-size: 1.2rem; cursor: pointer; padding: 5px; }
-
-        .bot-avatar {
-            width: 40px; height: 40px;
-            background: linear-gradient(135deg, #00a884, #005c4b);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.2rem; color: white;
-            box-shadow: 0 0 10px rgba(0, 168, 132, 0.4);
-        }
-
+        .bot-avatar { width: 40px; height: 40px; background: linear-gradient(135deg, #00a884, #005c4b); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: white; box-shadow: 0 0 10px rgba(0, 168, 132, 0.4); }
         .header-info { flex: 1; }
         .header-info h2 { margin: 0; font-size: 1rem; }
         .header-info p { margin: 0; font-size: 0.75rem; color: #8696a0; }
-
         .header-actions { display: flex; gap: 10px; }
 
         /* منطقة الشات */
-        #chat-container {
-            flex: 1; padding: 15px; overflow-y: auto;
-            background-image: url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png");
-            background-color: #0b141a; background-blend-mode: overlay;
-            display: flex; flex-direction: column; gap: 10px; scroll-behavior: smooth;
-        }
-
-        .message {
-            max-width: 85%; padding: 8px 12px; border-radius: 12px;
-            position: relative; line-height: 1.6; font-size: 0.95rem;
-            word-wrap: break-word; animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 1px 0.5px rgba(0,0,0,0.13);
-        }
-
+        #chat-container { flex: 1; padding: 15px; overflow-y: auto; background-image: url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png"); background-color: #0b141a; background-blend-mode: overlay; display: flex; flex-direction: column; gap: 10px; scroll-behavior: smooth; }
+        .message { max-width: 85%; padding: 8px 12px; border-radius: 12px; position: relative; line-height: 1.6; font-size: 0.95rem; word-wrap: break-word; animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 1px 0.5px rgba(0,0,0,0.13); }
         @keyframes popIn { from { transform: scale(0.9) translateY(10px); opacity: 0; } to { transform: scale(1) translateY(0); opacity: 1; } }
-
         .user-msg { align-self: flex-end; background-color: var(--user-bubble); border-bottom-left-radius: 2px; }
         .ai-msg { align-self: flex-start; background-color: var(--ai-bubble); border-bottom-right-radius: 2px; }
         .msg-time { font-size: 0.65rem; color: rgba(255,255,255,0.6); text-align: left; margin-top: 4px; display: block; }
-
         pre { background: var(--code-bg) !important; padding: 0; border-radius: 8px; margin: 8px 0; border: 1px solid rgba(255,255,255,0.1); position: relative; direction: ltr; }
         .code-header { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.05); padding: 5px 10px; font-size: 0.75rem; color: #8696a0; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .copy-btn { background: none; border: none; color: #8696a0; cursor: pointer; display: flex; align-items: center; gap: 5px; }
         code { font-family: 'Consolas', monospace; font-size: 0.85rem; padding: 10px; display: block; overflow-x: auto; }
-        
         .typing-indicator { display: flex; gap: 5px; padding: 10px 15px; background: var(--ai-bubble); border-radius: 15px; border-bottom-right-radius: 2px; width: fit-content; margin-bottom: 10px; display: none; }
         .dot { width: 8px; height: 8px; background: #8696a0; border-radius: 50%; animation: bounce 1.4s infinite ease-in-out both; }
         .dot:nth-child(1) { animation-delay: -0.32s; }
@@ -180,124 +70,23 @@
         /* ========================================================
            🎧 تصميم واجهة ChatGPT Voice Mode (Sharp / Solid)
            ======================================================== */
-        #voice-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-color: #000000;
-            z-index: 99999;
-            display: none; 
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            padding: 40px 20px;
-        }
-        
+        #voice-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #000000; z-index: 99999; display: none; flex-direction: column; align-items: center; justify-content: space-between; padding: 40px 20px; }
         #voice-overlay.active { display: flex; }
-
-        .voice-header {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            color: rgba(255,255,255,0.9);
-            font-size: 1rem;
-            letter-spacing: 0.5px;
-        }
-
-        /* --- الكرة السائلة الحادة (Sharp Blob) --- */
-        .blob-container {
-            position: relative;
-            width: 300px;
-            height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .blob {
-            position: absolute;
-            width: 180px;
-            height: 180px;
-            background: #ffffff; /* أبيض صريح */
-            border-radius: 50%;
-            opacity: 1; /* تعتيم كامل */
-            transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(255,255,255,0.1);
-        }
-
-        /* الطبقات */
-        .blob:nth-child(1) { 
-            animation: morph 6s infinite ease-in-out; 
-            z-index: 2;
-        }
-        
-        /* طبقة خلفية للعمق */
-        .blob:nth-child(2) { 
-            animation: morph 6s infinite ease-in-out reverse; 
-            opacity: 0.3; 
-            width: 200px; 
-            height: 200px; 
-            z-index: 1;
-            background: #cccccc;
-        }
-
-        @keyframes morph {
-            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: rotate(0deg); }
-            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: rotate(360deg); }
-        }
-
-        /* حالات التفاعل */
-        .blob-container.listening .blob:nth-child(1) {
-            transform: scale(1.3);
-            background: #e0e0e0;
-        }
-
-        .blob-container.speaking .blob {
-            animation-duration: 2s; 
-            transform: scale(1.1);
-            background: #ffffff;
-        }
-
-        /* شريط التحكم السفلي */
-        .voice-controls-bar {
-            width: 100%;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding-bottom: 20px;
-        }
-
-        .control-btn {
-            background: #1a1a1a;
-            border: none;
-            color: white;
-            width: 55px; height: 55px;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            cursor: pointer;
-            display: flex; align-items: center; justify-content: center;
-            transition: 0.2s;
-        }
-
+        .voice-header { width: 100%; display: flex; justify-content: center; color: rgba(255,255,255,0.9); font-size: 1rem; letter-spacing: 0.5px; }
+        .blob-container { position: relative; width: 300px; height: 300px; display: flex; align-items: center; justify-content: center; }
+        .blob { position: absolute; width: 180px; height: 180px; background: #ffffff; border-radius: 50%; opacity: 1; transition: all 0.3s ease; box-shadow: 0 0 10px rgba(255,255,255,0.1); }
+        .blob:nth-child(1) { animation: morph 6s infinite ease-in-out; z-index: 2; }
+        .blob:nth-child(2) { animation: morph 6s infinite ease-in-out reverse; opacity: 0.3; width: 200px; height: 200px; z-index: 1; background: #cccccc; }
+        @keyframes morph { 0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: rotate(0deg); } 50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; } 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: rotate(360deg); } }
+        .blob-container.listening .blob:nth-child(1) { transform: scale(1.3); background: #e0e0e0; }
+        .blob-container.speaking .blob { animation-duration: 2s; transform: scale(1.1); background: #ffffff; }
+        .voice-controls-bar { width: 100%; display: flex; justify-content: space-around; align-items: center; padding-bottom: 20px; }
+        .control-btn { background: #1a1a1a; border: none; color: white; width: 55px; height: 55px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.2s; }
         .control-btn:hover { background: #333; }
-        
-        .control-btn.close {
-            background: #fff;
-            color: #000;
-            width: 65px; height: 65px;
-            font-size: 1.5rem;
-        }
+        .control-btn.close { background: #fff; color: #000; width: 65px; height: 65px; font-size: 1.5rem; }
         .control-btn.close:hover { background: #e0e0e0; }
-
-        .control-btn.mic-active {
-            background: white;
-            color: black;
-        }
-
-        @media (min-width: 768px) {
-            #sidebar { position: relative; transform: translateX(0); width: 300px; border-left: 1px solid rgba(255,255,255,0.1); }
-            .overlay { display: none !important; }
-            .menu-btn { display: none; }
-        }
+        .control-btn.mic-active { background: white; color: black; }
+        @media (min-width: 768px) { #sidebar { position: relative; transform: translateX(0); width: 300px; border-left: 1px solid rgba(255,255,255,0.1); } .overlay { display: none !important; } .menu-btn { display: none; } }
     </style>
 </head>
 <body>
@@ -305,33 +94,23 @@
     <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
 
     <div id="voice-overlay">
-        
         <div class="voice-header" id="voiceStatus">Listening...</div>
-
         <div class="blob-container" id="blobContainer">
             <div class="blob"></div>
             <div class="blob"></div>
         </div>
-
         <div class="voice-controls-bar">
-            <button class="control-btn" id="voiceMicBtn" onclick="toggleMicMute()">
-                <i class="fa-solid fa-microphone"></i>
-            </button>
-
-            <button class="control-btn close" onclick="closeVoiceMode()">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            
-            <button class="control-btn">
-                <i class="fa-solid fa-keyboard"></i>
-            </button>
+            <button class="control-btn" id="voiceMicBtn" onclick="toggleMicMute()"><i class="fa-solid fa-microphone"></i></button>
+            <button class="control-btn close" onclick="closeVoiceMode()"><i class="fa-solid fa-xmark"></i></button>
+            <button class="control-btn"><i class="fa-solid fa-keyboard"></i></button>
         </div>
     </div>
 
+    <!-- عنصر صوت مخفي للحل السحري -->
+    <audio id="audioBackup" style="display:none;"></audio>
+
     <aside id="sidebar">
-        <button class="new-chat-btn" onclick="startNewChat()">
-            <i class="fa-solid fa-plus"></i> محادثة جديدة
-        </button>
+        <button class="new-chat-btn" onclick="startNewChat()"><i class="fa-solid fa-plus"></i> محادثة جديدة</button>
         <div class="history-list" id="historyList"></div>
     </aside>
 
@@ -344,12 +123,8 @@
                 <p id="statusText">متصل الآن</p>
             </div>
             <div class="header-actions">
-                <button class="action-btn" onclick="startVoiceMode()" title="محادثة صوتية">
-                    <i class="fa-solid fa-headphones"></i>
-                </button>
-                <button class="action-btn" onclick="deleteAllHistory()" title="حذف الكل">
-                    <i class="fa-solid fa-trash-can"></i>
-                </button>
+                <button class="action-btn" onclick="startVoiceMode()" title="محادثة صوتية"><i class="fa-solid fa-headphones"></i></button>
+                <button class="action-btn" onclick="deleteAllHistory()" title="حذف الكل"><i class="fa-solid fa-trash-can"></i></button>
             </div>
         </header>
 
@@ -362,9 +137,7 @@
         <div class="input-area">
             <button id="micBtn" class="action-btn" onclick="toggleVoice()"><i class="fa-solid fa-microphone"></i></button>
             <textarea id="userInput" placeholder="اكتب رسالة..." rows="1"></textarea>
-            <button id="sendBtn" class="action-btn send-btn" onclick="sendMessage()">
-                <i class="fa-solid fa-paper-plane"></i>
-            </button>
+            <button id="sendBtn" class="action-btn send-btn" onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
         </div>
     </main>
 
@@ -412,31 +185,22 @@
         const voiceStatus = document.getElementById('voiceStatus');
         const blobContainer = document.getElementById('blobContainer');
         const voiceMicBtn = document.getElementById('voiceMicBtn');
+        const audioBackup = document.getElementById('audioBackup'); // العنصر السحري
         
         let isVoiceModeActive = false;
         let recognitionLoop;
         let silenceTimer;
         let isMuted = false;
 
-        // تهيئة الأصوات عند تحميل الصفحة
         window.addEventListener('load', () => {
             renderHistoryList();
             if (sessions.length > 0) loadSession(sessions[0].id);
             else startNewChat();
-            
-            // تحميل الأصوات مسبقاً للأندرويد
-            if ('speechSynthesis' in window) {
-                window.speechSynthesis.getVoices();
-            }
         });
 
-        // ==========================================
-        //  FIX: تحسين كود الصوت (إصلاح الصمت)
-        // ==========================================
-        
         function startVoiceMode() {
             if (!('webkitSpeechRecognition' in window)) {
-                console.warn("Speech API missing");
+                // Fail silently
             }
             isVoiceModeActive = true;
             voiceOverlay.classList.add('active');
@@ -444,14 +208,6 @@
             isMuted = false;
             updateUIState('connecting');
             
-            // "إيقاظ" محرك الصوت فوراً بضغطة زر (Fix for Mobile)
-            if ('speechSynthesis' in window) {
-                window.speechSynthesis.cancel();
-                // نطق حرف فارغ لتفعيل المحرك
-                let dummy = new SpeechSynthesisUtterance(" ");
-                window.speechSynthesis.speak(dummy);
-            }
-
             setTimeout(() => {
                 startListeningLoop();
             }, 500);
@@ -461,7 +217,8 @@
             isVoiceModeActive = false;
             voiceOverlay.classList.remove('active');
             if(recognitionLoop) recognitionLoop.stop();
-            window.speechSynthesis.cancel(); 
+            window.speechSynthesis.cancel();
+            audioBackup.pause(); // ايقاف الصوت الاحتياطي
             clearTimeout(silenceTimer);
         }
 
@@ -517,87 +274,78 @@
                 };
 
                 recognitionLoop.onerror = (e) => {
-                    if (isVoiceModeActive && !isMuted) {
-                        if (e.error !== 'no-speech') {
-                            setTimeout(startListeningLoop, 1000);
-                        }
+                    if (isVoiceModeActive && !isMuted && e.error !== 'no-speech') {
+                        setTimeout(startListeningLoop, 1000);
                     }
                 };
                 
                 recognitionLoop.start();
 
-            } catch (err) {
-                console.error("Initialization error", err);
-            }
+            } catch (err) { }
         }
 
         async function processVoiceInput(text) {
             if (!isVoiceModeActive) return;
 
             updateUIState('thinking');
+            
             userInput.value = text;
             const responseText = await sendMessage(true); 
 
             if (responseText && isVoiceModeActive) {
-                speakResponseInVoiceMode(responseText);
+                // هنا نستخدم الاستراتيجية المزدوجة
+                speakResponseDualStrategy(responseText);
             } else if (isVoiceModeActive) {
                 startListeningLoop();
             }
         }
 
-        // متغير عام لمنع حذف الكائن من الذاكرة (Garbage Collection Fix)
-        window.currentUtterance = null;
-
-        function speakResponseInVoiceMode(text) {
+        // ==========================================
+        //  🔥 الاستراتيجية المزدوجة (الحل النهائي) 🔥
+        // ==========================================
+        function speakResponseDualStrategy(text) {
             if (!isVoiceModeActive) return;
 
             updateUIState('speaking');
+            const cleanText = text.replace(/[*#`]/g, '').substring(0, 200); // تقصير النص لتجنب المشاكل
 
-            // إلغاء أي صوت سابق
-            window.speechSynthesis.cancel();
-
-            const cleanText = text.replace(/[*#`]/g, '');
+            // المحاولة الأولى: استخدام محرك جوجل الصوتي عبر الإنترنت (يعمل كملف صوتي)
+            // هذا يتجاوز قيود WebView تماماً
+            const googleTTSUrl = `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=ar&q=${encodeURIComponent(cleanText)}`;
             
-            // إنشاء كائن النطق وتخزينه في المتغير العام
-            window.currentUtterance = new SpeechSynthesisUtterance(cleanText);
+            audioBackup.src = googleTTSUrl;
             
-            // محاولة جلب الأصوات مجدداً
-            let voices = window.speechSynthesis.getVoices();
-            
-            // البحث عن صوت عربي
-            const arVoice = voices.find(v => v.lang.includes('ar'));
-            if (arVoice) {
-                window.currentUtterance.voice = arVoice;
-            }
-            
-            window.currentUtterance.lang = 'ar-SA';
-            window.currentUtterance.rate = 1.0; 
-            window.currentUtterance.volume = 1.0; // التأكد من الصوت
-
-            // عند الانتهاء
-            window.currentUtterance.onend = () => {
-                if (isVoiceModeActive && !isMuted) {
-                    setTimeout(() => {
-                        startListeningLoop();
-                    }, 300);
-                }
+            audioBackup.onplay = () => {
+                // اشتغل بنجاح
             };
 
-            // عند الخطأ
-            window.currentUtterance.onerror = (e) => {
-                console.error("TTS Error:", e);
-                // العودة للاستماع حتى لو فشل النطق
-                if (isVoiceModeActive) {
+            audioBackup.onended = () => {
+                if (isVoiceModeActive && !isMuted) {
                     setTimeout(() => startListeningLoop(), 300);
                 }
             };
 
-            window.speechSynthesis.speak(window.currentUtterance);
-            
-            // Fix: إذا كان المحرك متوقفاً مؤقتاً، أجبره على العمل
-            if (window.speechSynthesis.paused) {
-                window.speechSynthesis.resume();
-            }
+            audioBackup.onerror = () => {
+                // إذا فشل جوجل (نادر)، نعود للطريقة القديمة
+                console.log("Google TTS failed, trying native...");
+                speakNative(cleanText);
+            };
+
+            // تشغيل الصوت
+            audioBackup.play().catch(e => {
+                console.error("Audio Play failed", e);
+                speakNative(cleanText); // المحاولة الأخيرة
+            });
+        }
+
+        function speakNative(text) {
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'ar-SA';
+            utterance.onend = () => {
+                if (isVoiceModeActive && !isMuted) setTimeout(() => startListeningLoop(), 300);
+            };
+            window.speechSynthesis.speak(utterance);
         }
 
         // ==========================================
