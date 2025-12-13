@@ -418,14 +418,20 @@
         let silenceTimer;
         let isMuted = false;
 
+        // تهيئة الأصوات عند تحميل الصفحة
         window.addEventListener('load', () => {
             renderHistoryList();
             if (sessions.length > 0) loadSession(sessions[0].id);
             else startNewChat();
+            
+            // تحميل الأصوات مسبقاً للأندرويد
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.getVoices();
+            }
         });
 
         // ==========================================
-        //  FIX: منطق الصوت المصحح للأندرويد
+        //  FIX: تحسين كود الصوت (إصلاح الصمت)
         // ==========================================
         
         function startVoiceMode() {
@@ -438,10 +444,11 @@
             isMuted = false;
             updateUIState('connecting');
             
-            // "إيقاظ" محرك الصوت فوراً بضغطة زر
+            // "إيقاظ" محرك الصوت فوراً بضغطة زر (Fix for Mobile)
             if ('speechSynthesis' in window) {
                 window.speechSynthesis.cancel();
-                let dummy = new SpeechSynthesisUtterance("");
+                // نطق حرف فارغ لتفعيل المحرك
+                let dummy = new SpeechSynthesisUtterance(" ");
                 window.speechSynthesis.speak(dummy);
             }
 
@@ -475,7 +482,6 @@
 
         function updateUIState(state) {
             blobContainer.className = 'blob-container';
-            
             if (state === 'listening') {
                 voiceStatus.innerText = "Listening...";
             } else if (state === 'thinking') {
@@ -511,7 +517,6 @@
                 };
 
                 recognitionLoop.onerror = (e) => {
-                    console.log("Silent Error: ", e.error);
                     if (isVoiceModeActive && !isMuted) {
                         if (e.error !== 'no-speech') {
                             setTimeout(startListeningLoop, 1000);
@@ -519,10 +524,6 @@
                     }
                 };
                 
-                recognitionLoop.onend = () => {
-                    // للحفاظ على الاستمرارية
-                };
-
                 recognitionLoop.start();
 
             } catch (err) {
@@ -534,7 +535,6 @@
             if (!isVoiceModeActive) return;
 
             updateUIState('thinking');
-            
             userInput.value = text;
             const responseText = await sendMessage(true); 
 
@@ -545,30 +545,37 @@
             }
         }
 
+        // متغير عام لمنع حذف الكائن من الذاكرة (Garbage Collection Fix)
+        window.currentUtterance = null;
+
         function speakResponseInVoiceMode(text) {
             if (!isVoiceModeActive) return;
 
             updateUIState('speaking');
 
+            // إلغاء أي صوت سابق
+            window.speechSynthesis.cancel();
+
             const cleanText = text.replace(/[*#`]/g, '');
-            const utterance = new SpeechSynthesisUtterance(cleanText);
             
-            // اختيار أي صوت عربي متاح، أو استخدام الافتراضي
-            const voices = window.speechSynthesis.getVoices();
+            // إنشاء كائن النطق وتخزينه في المتغير العام
+            window.currentUtterance = new SpeechSynthesisUtterance(cleanText);
+            
+            // محاولة جلب الأصوات مجدداً
+            let voices = window.speechSynthesis.getVoices();
+            
+            // البحث عن صوت عربي
             const arVoice = voices.find(v => v.lang.includes('ar'));
             if (arVoice) {
-                utterance.voice = arVoice;
+                window.currentUtterance.voice = arVoice;
             }
             
-            utterance.lang = 'ar-SA';
-            utterance.pitch = 1.0; 
-            
-            // إصلاح مشكلة التوقف: إعادة تشغيل المحرك
-            if(window.speechSynthesis.paused) {
-                window.speechSynthesis.resume();
-            }
+            window.currentUtterance.lang = 'ar-SA';
+            window.currentUtterance.rate = 1.0; 
+            window.currentUtterance.volume = 1.0; // التأكد من الصوت
 
-            utterance.onend = () => {
+            // عند الانتهاء
+            window.currentUtterance.onend = () => {
                 if (isVoiceModeActive && !isMuted) {
                     setTimeout(() => {
                         startListeningLoop();
@@ -576,7 +583,21 @@
                 }
             };
 
-            window.speechSynthesis.speak(utterance);
+            // عند الخطأ
+            window.currentUtterance.onerror = (e) => {
+                console.error("TTS Error:", e);
+                // العودة للاستماع حتى لو فشل النطق
+                if (isVoiceModeActive) {
+                    setTimeout(() => startListeningLoop(), 300);
+                }
+            };
+
+            window.speechSynthesis.speak(window.currentUtterance);
+            
+            // Fix: إذا كان المحرك متوقفاً مؤقتاً، أجبره على العمل
+            if (window.speechSynthesis.paused) {
+                window.speechSynthesis.resume();
+            }
         }
 
         // ==========================================
