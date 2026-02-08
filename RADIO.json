@@ -1,8 +1,13 @@
 [
   {
+    "name": "كنيسة العذراء مريم بالزيتون",
+    "img": "https://blogger.googleusercontent.com/img/a/AVvXsEixhFmoS086gzALm_zm42f78GDjZffITFVd-Ve0EqA64KtxL3_5T8z4saxdIi06Jv-36iAO2K4xyNNj3O6ab5ujY_Vjhs6v9IwuGkS9dp-2Tee_gD2ZwE0ObfzsXzOK_vkcJlno3gzYd3pfxdC1CuGm73ExHfpDNM_Oqg6LJfQ3za3kczhPMwaG_HcR-ow",
+    "url": "https://cast.az-streamingserver.com/proxy/stmary?1736513536691=&mp=/stream"
+  },
+  {
     "name": "إذاعة القرآن الكريم (القاهرة)",
     "img": "https://blogger.googleusercontent.com/img/a/AVvXsEjavXRmUNH-YQHsyW8JGaJhI4O2zyRVOcVi7ALgKqGBMNMvwHjZKBG1f6n2YIubiINyxnN9eJDnlLmXvtzEvMZPin2RapquMsUtq6yOAPU1PVYyZsJ_Fj7GvryBaBamx5TDIyTnTrnIOLmzUVe-2orBGe2ru6n3muFxho4RDDeAuJEjzZQHfaC9L8q76g4",
-    "url": "https://n13.radiojar.com/8s5u5tpdtwzuv?rj-tok=AAABm7rsQTQAKvgaMaB9hJyyHA&rj-ttl=5"
+    "url": "https://n03.radiojar.com/8s5u8s3690quv"
   },
   {
     "name": "نجوم FM 100.6",
@@ -20,11 +25,6 @@
     "url": "https://radio.ertu.org/alaghani"
   },
   {
-    "name": "ميجا FM 92.7",
-    "img": "https://upload.wikimedia.org/wikipedia/ar/6/6f/Mega_FM_Logo.jpg",
-    "url": "https://megafm.nrp.jo/megafm"
-  },
-  {
     "name": "راديو 9090",
     "img": "https://upload.wikimedia.org/wikipedia/ar/f/f9/Radio_9090_logo.png",
     "url": "https://9090.nrp.jo/9090"
@@ -35,18 +35,8 @@
     "url": "http://stream.live.vc.bbcmedia.com/bbc_arabic_radio"
   },
   {
-    "name": "Monte Carlo Doualiya",
-    "img": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Monte_Carlo_Doualiya_logo.png",
-    "url": "http://mcd-rd-en-direct-64k.akacast.akamaistream.net/7/754/104100/v1/gnl.akacast.akamaistream.net/mcd-rd-en-direct-64k"
-  },
-  {
     "name": "Sky News Arabia Radio",
     "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Sky_News_Arabia_logo.svg/1200px-Sky_News_Arabia_logo.svg.png",
     "url": "http://skynewsarabia.ice.infomaniak.ch/skynewsarabia.mp3"
-  },
-  {
-    "name": "راديو روتانا",
-    "img": "https://upload.wikimedia.org/wikipedia/ar/d/d4/Rotana_Cinema_Logo.png",
-    "url": "http://188.165.11.15:8461/stream"
   }
 ]
