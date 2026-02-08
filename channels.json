@@ -1,140 +1,17 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WALID TURBO - NO OVERLAP</title>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
-    
-    <style>
-        :root { --accent: #00d2ff; --bg: #020202; }
-        body { background: var(--bg); color: #fff; font-family: 'Cairo', sans-serif; margin: 0; overflow-x: hidden; }
-        
-        #offline-screen {
-            display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95);
-            backdrop-filter: blur(15px); z-index: 10000; flex-direction: column;
-            align-items: center; justify-content: center;
-        }
-
-        #tv-zone { display: none; padding: 20px 5%; animation: fadeIn 0.5s; }
-        .lcd-frame {
-            position: relative; width: 100%; max-width: 950px; margin: auto;
-            background: #111; padding: 10px 10px 25px 10px; border-radius: 15px;
-            box-shadow: 0 0 60px rgba(0, 210, 255, 0.2); border: 1px solid #222;
-        }
-        .screen-container { background: #000; aspect-ratio: 16/9; border-radius: 8px; overflow: hidden; position: relative; }
-
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); 
-            gap: 20px; padding: 30px 6%; 
-        }
-        .card { 
-            aspect-ratio: 1/1; background: rgba(255,255,255,0.03); border-radius: 18px; 
-            border: 1px solid rgba(255,255,255,0.08); cursor: pointer; transition: 0.3s; overflow: hidden;
-        }
-        .card img { width: 100%; height: 100%; object-fit: fill; filter: brightness(0.8); transition: 0.4s; }
-        .card:hover { transform: translateY(-8px); border-color: var(--accent); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
-        .card:hover img { filter: brightness(1.1); }
-
-        .refresh-btn { padding: 12px 40px; background: var(--accent); border: none; border-radius: 25px; cursor: pointer; font-weight: bold; margin-top: 20px; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    </style>
-</head>
-<body>
-
-<div id="offline-screen">
-    <i class="fa-solid fa-wifi-slash" style="font-size: 60px; color: #ff4b2b;"></i>
-    <h2 style="margin: 20px 0;">لا يوجد اتصال بالإنترنت</h2>
-    <button class="refresh-btn" onclick="location.reload()">تحديث</button>
-</div>
-
-<header style="padding: 25px 6%; text-align: center;">
-    <div style="font-weight: 900; font-size: 26px; letter-spacing: 4px;">WALID <span style="color:var(--accent)">PREMIUM</span></div>
-</header>
-
-<div id="tv-zone">
-    <div class="lcd-frame">
-        <div class="screen-container" id="player-wrapper">
-            </div>
-    </div>
-    <div id="ch-title" style="text-align:center; color:var(--accent); margin-top:15px; font-weight:bold; font-size:18px;"></div>
-</div>
-
-<div class="grid" id="grid"></div>
-
-<script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-
-<script>
-    const hls = new Hls({ enableWorker: true, lowLatencyMode: true });
-    const wrapper = document.getElementById('player-wrapper');
-
-    const db = [
-        { name: 'MBC Bollywood', url: 'https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-bollywood/546eb40d7dcf9a209255dd2496903764/index.m3u8', img: 'https://l.top4top.io/p_3670a59279.jpeg' },
-        { name: 'القرآن الكريم', url: 'https://www.youtube.com/embed/N-jpTFSCYDY?autoplay=1', img: 'https://a.top4top.io/p_3671dv7xm9.jpg', iframe: true },
-        { name: 'MBC 1', url: 'https://mbc1-enc.edgenextcdn.net/out/v1/0965e4d7deae49179172426cbfb3bc5e/index_6.m3u8', img: 'https://e.top4top.io/p_3670w2uba7.jpeg' },
-        { name: 'MBC Masr', url: 'https://shls-masr-enc.edgenextcdn.net/out/v1/d5036cabf11e45bf9d0db410ca135c18/index_47.m3u8', img: 'https://l.top4top.io/p_3670uvwo89.jpeg' },
-        { name: 'MBC Masr 2', url: 'https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-masr-2/754931856515075b0aabf0e583495c68/index.m3u8', img: 'https://j.top4top.io/p_3670kkvwx9.jpeg' },
-        { name: 'Masr Drama', url: 'https://shls-live-enc.edgenextcdn.net/out/v1/08eca926a78a41339b8010c882410307/index.m3u8', img: 'https://f.top4top.io/p_3691d8ho18.jpg' },
-        { name: 'Mix Hollywood', url: 'https://ml-pull-hwc.myco.io/MixTV/hls/index.m3u8', img: 'https://c.top4top.io/p_36912pa549.png', iframe: true },
-        { name: 'National Geo', url: 'https://admn-live-cdn-lb.starzplayarabia.com/out/v1/admn_tv_enc/national_geo/national_geo_hls_nd/index.m3u8', img: 'https://g.top4top.io/p_3691eg2839.png' },
-        { name: 'الأولى المصرية', url: 'https://geo.dailymotion.com/player/xi5eg.html?video=x856hbh', img: 'https://l.top4top.io/p_3671m61ct9.jpeg', iframe: true },
-        { name: 'MIX 1', url: 'https://ml-pull-hwc.myco.io/MixONE/hls/MixONE_H264-480p.m3u8', img: 'https://j.top4top.io/p_3671bcr8t9.jpeg' },
-        { name: 'سبيستون', url: 'https://shd-gcp-live.edgenextcdn.net/live/bitmovin-spacetoon/d8382fb9ab4b2307058f12c7ea90db54/index.m3u8', img: 'https://g.top4top.io/p_3681vmifg9.jpg' },
-        { name: 'Mohammed Abdo', url: 'https://d2ow8h651gs7dx.cloudfront.net/out/v1/371fb663da604e659a2fb99bf89d92d4/index.m3u8', img: 'https://k.top4top.io/p_3691idx3y5.jpg' },
-        { name: 'العربية', url: 'https://live.alarabiya.net/alarabiapublish/alarabiya.smil/playlist.m3u8', img: 'https://i.top4top.io/p_3691qpats9.jpg' },
-        { name: 'الجزيره اخبار', url: 'https://www.youtube.com/embed/bNyUyrR0PHo?autoplay=1', img: 'https://b.top4top.io/p_3691rgu159.jpeg', iframe: true },
-        { name: 'بين سبورت 1', url: 'http://91.109.114.8/beinSports1AlcatlanTvHD/tracks-v1a1/mono.ts.m3u8', img: 'https://a.top4top.io/p_36729iz3p7.jpg' }
-    ];
-
-    function play(ch) {
-        if (!navigator.onLine) return;
-
-        // 1. القضاء على أي محتوى قديم فوراً (حل مشكلة تداخل الصوت)
-        hls.detachMedia();
-        hls.stopLoad();
-        wrapper.innerHTML = ""; 
-
-        document.getElementById('tv-zone').style.display = 'block';
-        document.getElementById('ch-title').innerText = `بث مباشر: ${ch.name}`;
-
-        if (ch.iframe) {
-            // تشغيل قنوات اليوتيوب/دايلي موشن بنظام المسح الكامل
-            wrapper.innerHTML = `<iframe src="${ch.url}" style="width:100%; height:100%; border:none;" allow="autoplay; fullscreen"></iframe>`;
-        } else {
-            // تشغيل قنوات m3u8 بنظام المحرك النظيف
-            const v = document.createElement('video');
-            v.id = "active-video";
-            v.controls = true;
-            v.style.width = "100%";
-            v.style.height = "100%";
-            wrapper.appendChild(v);
-            
-            new Plyr(v);
-            hls.loadSource(ch.url);
-            hls.attachMedia(v);
-            hls.on(Hls.Events.MANIFEST_PARSED, () => v.play().catch(() => {}));
-        }
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // بناء الشبكة
-    const grid = document.getElementById('grid');
-    db.forEach(ch => {
-        const c = document.createElement('div');
-        c.className = 'card';
-        c.onclick = () => play(ch);
-        c.innerHTML = `<img src="${ch.img}" alt="${ch.name}">`;
-        grid.appendChild(c);
-    });
-
-    setInterval(() => {
-        document.getElementById('offline-screen').style.display = navigator.onLine ? 'none' : 'flex';
-    }, 2000);
-</script>
-</body>
-</html>
+[
+  { "name": "MBC Bollywood", "url": "https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-bollywood/546eb40d7dcf9a209255dd2496903764/index.m3u8", "img": "https://l.top4top.io/p_3670a59279.jpeg" },
+  { "name": "القرآن الكريم", "url": "https://www.youtube.com/embed/N-jpTFSCYDY?autoplay=1", "img": "https://a.top4top.io/p_3671dv7xm9.jpg", "iframe": true },
+  { "name": "MBC 1", "url": "https://mbc1-enc.edgenextcdn.net/out/v1/0965e4d7deae49179172426cbfb3bc5e/index_6.m3u8", "img": "https://e.top4top.io/p_3670w2uba7.jpeg" },
+  { "name": "MBC Masr", "url": "https://shls-masr-enc.edgenextcdn.net/out/v1/d5036cabf11e45bf9d0db410ca135c18/index_47.m3u8", "img": "https://l.top4top.io/p_3670uvwo89.jpeg" },
+  { "name": "MBC Masr 2", "url": "https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-masr-2/754931856515075b0aabf0e583495c68/index.m3u8", "img": "https://j.top4top.io/p_3670kkvwx9.jpeg" },
+  { "name": "Masr Drama", "url": "https://shls-live-enc.edgenextcdn.net/out/v1/08eca926a78a41339b8010c882410307/index.m3u8", "img": "https://f.top4top.io/p_3691d8ho18.jpg" },
+  { "name": "Mix Hollywood", "url": "https://ml-pull-hwc.myco.io/MixTV/hls/index.m3u8", "img": "https://c.top4top.io/p_36912pa549.png", "iframe": true },
+  { "name": "National Geo", "url": "https://admn-live-cdn-lb.starzplayarabia.com/out/v1/admn_tv_enc/national_geo/national_geo_hls_nd/index.m3u8", "img": "https://g.top4top.io/p_3691eg2839.png" },
+  { "name": "الأولى المصرية", "url": "https://geo.dailymotion.com/player/xi5eg.html?video=x856hbh", "img": "https://l.top4top.io/p_3671m61ct9.jpeg", "iframe": true },
+  { "name": "MIX 1", "url": "https://ml-pull-hwc.myco.io/MixONE/hls/MixONE_H264-480p.m3u8", "img": "https://j.top4top.io/p_3671bcr8t9.jpeg" },
+  { "name": "سبيستون", "url": "https://shd-gcp-live.edgenextcdn.net/live/bitmovin-spacetoon/d8382fb9ab4b2307058f12c7ea90db54/index.m3u8", "img": "https://g.top4top.io/p_3681vmifg9.jpg" },
+  { "name": "Mohammed Abdo", "url": "https://d2ow8h651gs7dx.cloudfront.net/out/v1/371fb663da604e659a2fb99bf89d92d4/index.m3u8", "img": "https://k.top4top.io/p_3691idx3y5.jpg" },
+  { "name": "العربية", "url": "https://live.alarabiya.net/alarabiapublish/alarabiya.smil/playlist.m3u8", "img": "https://i.top4top.io/p_3691qpats9.jpg" },
+  { "name": "الجزيره اخبار", "url": "https://www.youtube.com/embed/bNyUyrR0PHo?autoplay=1", "img": "https://b.top4top.io/p_3691rgu159.jpeg", "iframe": true },
+  { "name": "بين سبورت 1", "url": "http://91.109.114.8/beinSports1AlcatlanTvHD/tracks-v1a1/mono.ts.m3u8", "img": "https://a.top4top.io/p_36729iz3p7.jpg" }
+]
