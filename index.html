@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>WALID TV VIP</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="WALID VIP">
+    <link rel="apple-touch-icon" href="https://k.top4top.io/p_3691idx3y5.jpg"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+    
+    <style>
+        :root { --accent: #00d2ff; --bg: #050505; }
+        body { background: var(--bg); color: #fff; font-family: 'Cairo', sans-serif; margin: 0; padding-bottom: 30px; user-select: none; overflow-x: hidden; }
+        
+        /* هيدر نحيف واحترافي */
+        header { 
+            padding: 10px 20px; background: rgba(0,0,0,0.9); border-bottom: 1px solid rgba(0,210,255,0.2); 
+            position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; height: 50px;
+            backdrop-filter: blur(10px);
+        }
+        #search-input { 
+            background: #111; border: 1px solid #333; color: #fff; border-radius: 20px; 
+            padding: 5px 15px; font-size: 13px; display: none; width: 140px; outline: none; border: 1px solid var(--accent);
+        }
+
+        /* منطقة المشغل */
+        #tv-zone { display: none; position: relative; background: #000; padding: 5px 0; animation: fadeIn 0.5s; }
+        #close-player { 
+            position: absolute; left: 15px; top: 15px; z-index: 100; color: #fff; 
+            background: rgba(255,255,255,0.2); border-radius: 50%; width: 30px; height: 30px; 
+            display: flex; align-items: center; justify-content: center; cursor: pointer; backdrop-filter: blur(5px);
+        }
+        .player-container { width: 98%; max-width: 900px; margin: auto; aspect-ratio: 16/9; border-radius: 10px; overflow: hidden; background: #000; }
+
+        /* شبكة اللوجوهات فقط */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(95px, 1fr)); gap: 12px; padding: 20px 5%; }
+        .card { aspect-ratio: 1/1; background: #111; border-radius: 15px; overflow: hidden; border: 1px solid #222; cursor: pointer; transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .card:hover { transform: scale(1.1); border-color: var(--accent); box-shadow: 0 0 20px rgba(0,210,255,0.3); z-index: 5; }
+        .card img { width: 100%; height: 100%; object-fit: contain; padding: 8px; box-sizing: border-box; }
+
+        /* لودر البداية */
+        #loader { position: fixed; inset: 0; background: #000; z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        
+        /* إخفاء شريط التمرير */
+        ::-webkit-scrollbar { width: 0px; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+<div id="loader">
+    <i class="fas fa-bolt fa-spin fa-3x" style="color:var(--accent)"></i>
+    <p style="margin-top:20px; font-weight: bold; font-size: 14px; letter-spacing: 1px;">WALID VIP LOADING...</p>
+</div>
+
+<header>
+    <div style="font-weight: 900; font-size: 20px;">WALID <span style="color:var(--accent)">VIP</span></div>
+    <div style="display:flex; align-items:center; gap:10px;">
+        <input type="text" id="search-input" placeholder="ابحث عن قناة...">
+        <i class="fas fa-search" id="search-btn" style="cursor:pointer; color:var(--accent); font-size: 18px;"></i>
+    </div>
+</header>
+
+<div id="tv-zone">
+    <div id="close-player" onclick="closeTV()"><i class="fas fa-times"></i></div>
+    <div class="player-container" id="video-wrapper"></div>
+</div>
+
+<div class="grid" id="main-grid">
+    </div>
+
+<script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+<script>
+    // الرابط المقطع لزيادة الأمان
+    const _p1="ht", _p2="tps://ra", _p3="w.githubuser", _p4="content.com/", _p5="ahmedkom/ah", _p6="med/refs/hea", _p7="ds/main/chan", _p8="nels.json";
+    const SECURE_PATH = _p1+_p2+_p3+_p4+_p5+_p6+_p7+_p8;
+
+    const hls = new Hls({ enableWorker: true });
+    let allChannels = [];
+
+    // تفعيل البحث
+    document.getElementById('search-btn').onclick = function() {
+        const input = document.getElementById('search-input');
+        input.style.display = (input.style.display === 'block') ? 'none' : 'block';
+        if(input.style.display === 'block') input.focus();
+    };
+
+    document.getElementById('search-input').oninput = function(e) {
+        const term = e.target.value.toLowerCase();
+        const filtered = allChannels.filter(ch => ch.name.toLowerCase().includes(term));
+        renderGrid(filtered);
+    };
+
+    async function init() {
+        try {
+            const res = await fetch(SECURE_PATH + "?cache=" + Date.now());
+            const data = await res.json();
+            allChannels = Array.isArray(data) ? data : data.channels;
+            renderGrid(allChannels);
+            document.getElementById('loader').style.display = 'none';
+        } catch (e) {
+            document.getElementById('loader').innerHTML = "<b style='color:red'>⚠️ خطأ في الاتصال</b>";
+        }
+    }
+
+    function renderGrid(list) {
+        const grid = document.getElementById('main-grid');
+        grid.innerHTML = "";
+        list.forEach(ch => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.onclick = () => play(ch);
+            card.innerHTML = `<img src="${ch.img}" alt="${ch.name}">`;
+            grid.appendChild(card);
+        });
+    }
+
+    function play(ch) {
+        hls.detachMedia();
+        document.getElementById('tv-zone').style.display = 'block';
+        const container = document.getElementById('video-wrapper');
+        container.innerHTML = "";
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        if (ch.iframe) {
+            container.innerHTML = `<iframe src="${ch.url}${ch.url.includes('?')?'&':'?'}autoplay=1" style="width:100%; height:100%; border:none;" allow="autoplay; fullscreen"></iframe>`;
+        } else {
+            const v = document.createElement('video');
+            v.style.width = "100%"; v.style.height = "100%";
+            v.setAttribute('autoplay', ''); v.setAttribute('playsinline', ''); 
+            container.appendChild(v);
+            const player = new Plyr(v, { autoplay: true });
+            hls.loadSource(ch.url);
+            hls.attachMedia(v);
+            hls.on(Hls.Events.MANIFEST_PARSED, () => v.play().catch(() => { v.muted=true; v.play(); }));
+        }
+    }
+
+    function closeTV() {
+        document.getElementById('tv-zone').style.display = 'none';
+        document.getElementById('video-wrapper').innerHTML = "";
+        hls.detachMedia();
+    }
+
+    init();
+</script>
+</body>
+</html>
