@@ -16,3 +16,55 @@
     { "name": "بين سبورت 1", "url": "http://91.109.114.8/beinSports1AlcatlanTvHD/tracks-v1a1/mono.ts.m3u8", "img": "https://a.top4top.io/p_36729iz3p7.jpg" }
   ]
 
+[
+  {
+    "name": "إذاعة القرآن الكريم (القاهرة)",
+    "img": "https://upload.wikimedia.org/wikipedia/ar/d/d4/Quran_Radio_Logo.png",
+    "url": "https://n03.radiojar.com/8s5u8s3690quv?1616147417=&rj-tok=AAABeDP0-pYAl6O2G_S9-P-Hbg&rj-ttl=5"
+  },
+  {
+    "name": "نجوم FM 100.6",
+    "img": "https://upload.wikimedia.org/wikipedia/ar/2/23/Nogoum_FM_logo.png",
+    "url": "https://r.nogoumfm.net/nogoum"
+  },
+  {
+    "name": "راديو مصر 88.7",
+    "img": "https://upload.wikimedia.org/wikipedia/ar/a/a2/Radio_Masr_logo.png",
+    "url": "https://radiomasr.nrp.jo/radiomasr"
+  },
+  {
+    "name": "إذاعة الأغاني",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Radio_Amman.png",
+    "url": "https://radio.ertu.org/alaghani"
+  },
+  {
+    "name": "ميجا FM 92.7",
+    "img": "https://upload.wikimedia.org/wikipedia/ar/6/6f/Mega_FM_Logo.jpg",
+    "url": "https://megafm.nrp.jo/megafm"
+  },
+  {
+    "name": "راديو 9090",
+    "img": "https://upload.wikimedia.org/wikipedia/ar/f/f9/Radio_9090_logo.png",
+    "url": "https://9090.nrp.jo/9090"
+  },
+  {
+    "name": "BBC Arabic Radio",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/e/eb/BBC_World_Service_Arabic_logo.png",
+    "url": "http://stream.live.vc.bbcmedia.com/bbc_arabic_radio"
+  },
+  {
+    "name": "Monte Carlo Doualiya",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Monte_Carlo_Doualiya_logo.png",
+    "url": "http://mcd-rd-en-direct-64k.akacast.akamaistream.net/7/754/104100/v1/gnl.akacast.akamaistream.net/mcd-rd-en-direct-64k"
+  },
+  {
+    "name": "Sky News Arabia Radio",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Sky_News_Arabia_logo.svg/1200px-Sky_News_Arabia_logo.svg.png",
+    "url": "http://skynewsarabia.ice.infomaniak.ch/skynewsarabia.mp3"
+  },
+  {
+    "name": "راديو روتانا",
+    "img": "https://upload.wikimedia.org/wikipedia/ar/d/d4/Rotana_Cinema_Logo.png",
+    "url": "http://188.165.11.15:8461/stream"
+  }
+]
