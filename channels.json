@@ -8,11 +8,11 @@
   { "name": "Mix Hollywood", "url": "https://ml-pull-hwc.myco.io/MixTV/hls/index.m3u8", "img": "https://c.top4top.io/p_36912pa549.png", "iframe": true },
   { "name": "National Geo", "url": "https://admn-live-cdn-lb.starzplayarabia.com/out/v1/admn_tv_enc/national_geo/national_geo_hls_nd/index.m3u8", "img": "https://g.top4top.io/p_3691eg2839.png", "iframe": false },
   { "name": "الأولى المصرية", "url": "https://geo.dailymotion.com/player/xi5eg.html?video=x856hbh", "img": "https://l.top4top.io/p_3671m61ct9.jpeg", "iframe": true },
+  { "name": "الفضائية المصرية", "url": "https://geo.dailymotion.com/player/xtv3w.html?playlist=x7v6u6&autoplay=1", "img": "https://k.top4top.io/p_3671idx3y5.jpg", "iframe": true },
   { "name": "MIX 1", "url": "https://ml-pull-hwc.myco.io/MixONE/hls/MixONE_H264-480p.m3u8", "img": "https://j.top4top.io/p_3671bcr8t9.jpeg", "iframe": false },
   { "name": "سبيستون", "url": "https://shd-gcp-live.edgenextcdn.net/live/bitmovin-spacetoon/d8382fb9ab4b2307058f12c7ea90db54/index.m3u8", "img": "https://g.top4top.io/p_3681vmifg9.jpg", "iframe": false },
   { "name": "Mohammed Abdo", "url": "https://d2ow8h651gs7dx.cloudfront.net/out/v1/371fb663da604e659a2fb99bf89d92d4/index.m3u8", "img": "https://k.top4top.io/p_3691idx3y5.jpg", "iframe": false },
   { "name": "العربية", "url": "https://live.alarabiya.net/alarabiapublish/alarabiya.smil/playlist.m3u8", "img": "https://i.top4top.io/p_3691qpats9.jpg", "iframe": false },
   { "name": "الجزيره اخبار", "url": "https://www.youtube.com/embed/bNyUyrR0PHo?autoplay=1", "img": "https://b.top4top.io/p_3691rgu159.jpeg", "iframe": true },
-  { "name": "mbc2", "url": "https://azrogo.com/local/drPlayer/?id=mbc2", "img": "https://a.top4top.io/p_36729iz3p7.jpg", "iframe": true },
-  { "name": "الفضائية المصرية", "url": "https://geo.dailymotion.com/player/xtv3w.html?", "img": "https://k.top4top.io/p_3671idx3y5.jpg", "iframe": true }
+  { "name": "mbc2", "url": "https://azrogo.com/local/drPlayer/?id=mbc2", "img": "https://a.top4top.io/p_36729iz3p7.jpg", "iframe": true }
 ]
