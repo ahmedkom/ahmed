@@ -2,224 +2,178 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WALID VIP - GRID</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>WALID VIP - Fast Stream</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
     <style>
-        :root { --accent: #00d2ff; --bg: #050505; --nav-bg: #111; }
-        body { background: var(--bg); color: #fff; font-family: 'Cairo', sans-serif; margin: 0; padding-bottom: 70px; user-select: none; overflow-x: hidden; }
+        :root { --primary: #fad390; --main-red: #cc0000; --dark-bg: #080808; --card-bg: #121212; }
+        body { background: var(--dark-bg); color: #fff; font-family: 'Cairo', sans-serif; margin: 0; padding-bottom: 90px; }
+        header { padding: 0 20px; background: #000; border-bottom: 2px solid var(--main-red); display: flex; justify-content: space-between; align-items: center; height: 60px; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-weight: 900; font-size: 20px; }
+        .logo span { color: var(--main-red); }
+
+        #tv-player-zone, #radio-player-zone { display: none; width: 100%; transition: 0.3s; }
+        .video-wrapper { width: 100%; aspect-ratio: 16/9; background: #000; }
+
+        #radio-player-zone { 
+            background: linear-gradient(135deg, #0c2461 0%, #1e3799 100%);
+            margin: 10px auto; width: 95%; padding: 20px; border-radius: 20px; text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+        .radio-icon { font-size: 50px; color: var(--primary); margin-bottom: 10px; }
+        .radio-title { color: var(--primary); font-size: 18px; margin-bottom: 15px; font-weight: bold; }
+        .radio-btns { display: flex; justify-content: center; gap: 15px; }
+        .btn-r { background: var(--primary); border: none; width: 55px; height: 55px; border-radius: 50%; color: #0c2461; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
         
-        /* هيدر */
-        header { 
-            padding: 5px 20px; background: #000; border-bottom: 1px solid rgba(0, 210, 255, 0.2); 
-            position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; height: 50px;
-        }
-        #search-input { 
-            background: #111; border: 1px solid #333; color: #fff; border-radius: 20px; 
-            padding: 5px 15px; font-size: 12px; display: none; width: 140px; outline: none;
-        }
+        .close-p { background: var(--main-red); color: #fff; padding: 4px 10px; border-radius: 5px; cursor: pointer; font-size: 12px; margin: 5px 10px; display: inline-block; }
 
-        /* المشغل */
-        #tv-zone { display: none; position: relative; background: #000; padding: 10px 0; }
-        #close-player { 
-            position: absolute; right: 10px; top: 0px; z-index: 100; color: #fff; 
-            background: rgba(255,0,0,0.7); border-radius: 50%; width: 25px; height: 25px; 
-            display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 12px;
-        }
-        .player-container { width: 95%; max-width: 900px; margin: auto; aspect-ratio: 16/9; border-radius: 12px; overflow: hidden; border: 1px solid var(--accent); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 12px; padding: 15px; }
+        .card { background: var(--card-bg); border-radius: 12px; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; border: 1px solid #1a1a1a; }
+        .card img { width: 80%; height: 80%; object-fit: contain; }
 
-        /* شبكة اللوجوهات */
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(95px, 1fr)); gap: 15px; padding: 20px 5%; }
-        .card { aspect-ratio: 1/1; background: #111; border-radius: 15px; overflow: hidden; border: 1px solid #222; cursor: pointer; transition: 0.3s; }
-        .card:hover { transform: scale(1.05); border-color: var(--accent); box-shadow: 0 0 15px rgba(0,210,255,0.3); }
-        .card img { width: 100%; height: 100%; object-fit: contain; padding: 12px; box-sizing: border-box; }
+        .nav-bar { position: fixed; bottom: 0; width: 100%; background: #000; display: flex; justify-content: center; gap: 50px; padding: 10px 0; border-top: 1px solid #222; z-index: 1000; }
+        .nav-item { color: #555; text-align: center; font-size: 12px; cursor: pointer; }
+        .nav-item.active { color: var(--main-red); }
+        .nav-item i { font-size: 20px; }
 
-        /* شريط التنقل السفلي */
-        .bottom-nav { 
-            position: fixed; bottom: 0; width: 100%; background: var(--nav-bg); 
-            display: flex; justify-content: space-around; padding: 8px 0; 
-            border-top: 1px solid #222; z-index: 1000;
-        }
-        .nav-item { color: #666; text-align: center; font-size: 11px; cursor: pointer; transition: 0.3s; flex: 1; }
-        .nav-item i { font-size: 18px; display: block; margin-bottom: 2px; }
-        .nav-item.active { color: var(--accent); font-weight: bold; }
-
-        .skeleton { background: linear-gradient(90deg, #111 25%, #222 50%, #111 75%); background-size: 200% 100%; animation: pulse 1.5s infinite; }
-        @keyframes pulse { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+        #loading { position: fixed; inset: 0; background: #000; z-index: 2000; display: none; align-items: center; justify-content: center; }
+        .is-playing .radio-icon { animation: pulse 1.5s infinite linear; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
     </style>
 </head>
 <body>
 
+<div id="loading"><i class="fas fa-circle-notch fa-spin" style="font-size: 40px; color: var(--main-red);"></i></div>
+
 <header>
-    <div style="font-weight: 900; font-size: 18px;">WALID <span style="color:var(--accent)" id="category-title">TV</span></div>
-    <div style="display:flex; align-items:center; gap:10px;">
-        <input type="text" id="search-input" placeholder="بحث...">
-        <i class="fas fa-search" id="search-btn" style="cursor:pointer; color:var(--accent)"></i>
-    </div>
+    <div class="logo">WALID <span>VIP</span></div>
+    <i class="fas fa-search" style="color:var(--main-red)"></i>
 </header>
 
-<div id="tv-zone">
-    <div id="close-player" onclick="closeTV()"><i class="fas fa-times"></i></div>
-    <div class="player-container" id="video-wrapper"></div>
+<div id="tv-player-zone">
+    <div onclick="stopEverything()" class="close-p">إغلاق القناة ×</div>
+    <div class="video-wrapper" id="video-container"></div>
 </div>
 
-<div class="grid" id="main-grid">
-    <div class="card skeleton"></div>
-    <div class="card skeleton"></div>
-    <div class="card skeleton"></div>
-    <div class="card skeleton"></div>
+<div id="radio-player-zone">
+    <div onclick="stopEverything()" class="close-p" style="background:rgba(0,0,0,0.3)">إخفاء الراديو ×</div>
+    <div class="radio-icon" id="ricon"><i class="fas fa-microphone-lines"></i></div>
+    <div class="radio-title" id="rtitle">اسم الإذاعة</div>
+    <div class="radio-btns">
+        <button class="btn-r" id="rplay" onclick="toggleRadio()"><i class="fas fa-play"></i></button>
+        <button class="btn-r" onclick="stopEverything()"><i class="fas fa-stop"></i></button>
+    </div>
 </div>
 
-<nav class="bottom-nav">
-    <div class="nav-item active" onclick="changeCategory('TV', this)">
-        <i class="fas fa-tv"></i>
-        <span>تلفزيون</span>
-    </div>
-    <div class="nav-item" onclick="changeCategory('RADIO', this)">
-        <i class="fas fa-microphone"></i>
-        <span>راديو</span>
-    </div>
-    <div class="nav-item">
-        <i class="fas fa-star"></i>
-        <span>المفضلة</span>
-    </div>
+<div class="grid" id="main-grid"></div>
+
+<nav class="nav-bar">
+    <div class="nav-item active" onclick="loadContent('TV', this)"><i class="fas fa-tv"></i><br>القنوات</div>
+    <div class="nav-item" onclick="loadContent('RD', this)"><i class="fas fa-microphone"></i><br>الراديو</div>
 </nav>
 
 <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
 <script>
-    // --- تفكيك الروابط بالكامل ---
-    const _base = "https://raw.githubusercontent.com/ahmedkom/ahmed/refs/heads/main/";
-    const _fileTV = "chan" + "nels" + ".json";
-    const _fileRD = "RA" + "DIO" + ".json";
+    const API_BASE = "https://raw.githubusercontent.com/ahmedkom/ahmed/refs/heads/main/";
+    let radioAudio = new Audio();
+    let hls = new Hls();
+    let plyrPlayer = null;
 
-    const hls = new Hls();
-    let allData = [];
-
-    // التحكم في البحث
-    document.getElementById('search-btn').onclick = () => {
-        const input = document.getElementById('search-input');
-        input.style.display = input.style.display === 'block' ? 'none' : 'block';
-    };
-
-    document.getElementById('search-input').oninput = (e) => {
-        const term = e.target.value.toLowerCase();
-        const filtered = allData.filter(item => item.name.toLowerCase().includes(term));
-        renderItems(filtered);
-    };
-
-    async function changeCategory(type, el) {
-        // تحديث الأزرار
-        document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+    async function loadContent(type, el) {
+        stopEverything();
+        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
         el.classList.add('active');
-        
-        // تحديث العنوان
-        document.getElementById('category-title').innerText = (type === 'TV') ? 'TV' : 'RADIO';
-        
-        const targetUrl = _base + (type === 'TV' ? _fileTV : _fileRD);
-        loadData(targetUrl);
-    }
-
-    async function loadData(url) {
         const grid = document.getElementById('main-grid');
-        grid.innerHTML = '<div class="card skeleton"></div>'.repeat(8);
-        
+        grid.innerHTML = "";
+        document.getElementById('loading').style.display = 'flex';
+
         try {
-            const res = await fetch(url + "?v=" + Date.now());
+            const fileName = (type === 'TV') ? "channels.json" : "RADIO.json";
+            const res = await fetch(API_BASE + fileName + "?v=" + Date.now());
             const data = await res.json();
-            allData = Array.isArray(data) ? data : (data.channels || []);
-            renderItems(allData);
-        } catch (e) { console.error("Error Loading"); }
+            data.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `<img src="${item.img}">`;
+                card.onclick = () => { (type === 'TV') ? startTV(item) : startRadio(item) };
+                grid.appendChild(card);
+            });
+        } catch (e) { console.log("Load Error"); }
+        document.getElementById('loading').style.display = 'none';
     }
 
-    function renderItems(list) {
-        const grid = document.getElementById('main-grid');
-        grid.innerHTML = "";
-        list.forEach(item => {
-            const card = document.createElement('div');
-            card.className = 'card';
-            card.onclick = () => playMedia(item);
-            card.innerHTML = `<img src="${item.img}">`;
-            grid.appendChild(card);
-        });
-    }
-
-    function playMedia(item) {
-        closeTV();
-        document.getElementById('tv-zone').style.display = 'block';
-        const wrapper = document.getElementById('video-wrapper');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-
-        if (item.iframe) {
-            wrapper.innerHTML = `<iframe src="${item.url}" style="width:100%; height:100%; border:none;" allow="autoplay; fullscreen"></iframe>`;
-        } else {
-            const v = document.createElement('video');
-            v.style.width = "100%"; v.style.height = "100%";
-            wrapper.appendChild(v);
-            new Plyr(v, { autoplay: true });
+    function startTV(item) {
+        stopEverything();
+        document.getElementById('tv-player-zone').style.display = 'block';
+        const container = document.getElementById('video-container');
+        const video = document.createElement('video');
+        container.appendChild(video);
+        plyrPlayer = new Plyr(video, { autoplay: true });
+        if (Hls.isSupported()) {
             hls.loadSource(item.url);
-            hls.attachMedia(v);
-            hls.on(Hls.Events.MANIFEST_PARSED, () => v.play().catch(() => { v.muted=true; v.play(); }));
-        }
-    }
-
-    function closeTV() {
-        document.getElementById('tv-zone').style.display = 'none';
-        document.getElementById('video-wrapper').innerHTML = "";
-        hls.detachMedia();
-    }
-
-    // تشغيل التلفزيون عند الفتح
-    window.onload = () => changeCategory('TV', document.querySelector('.nav-item'));
-</script>
-</body>
-</html>            document.getElementById('loader').innerHTML = "<b style='color:red'>⚠️ خطأ في الاتصال</b>";
-        }
-    }
-
-    function renderGrid(list) {
-        const grid = document.getElementById('main-grid');
-        grid.innerHTML = "";
-        list.forEach(ch => {
-            const card = document.createElement('div');
-            card.className = 'card';
-            card.onclick = () => play(ch);
-            card.innerHTML = `<img src="${ch.img}" alt="${ch.name}">`;
-            grid.appendChild(card);
-        });
-    }
-
-    function play(ch) {
-        hls.detachMedia();
-        document.getElementById('tv-zone').style.display = 'block';
-        const container = document.getElementById('video-wrapper');
-        container.innerHTML = "";
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-
-        if (ch.iframe) {
-            container.innerHTML = `<iframe src="${ch.url}${ch.url.includes('?')?'&':'?'}autoplay=1" style="width:100%; height:100%; border:none;" allow="autoplay; fullscreen"></iframe>`;
+            hls.attachMedia(video);
+            hls.on(Hls.Events.MANIFEST_PARSED, () => video.play());
         } else {
-            const v = document.createElement('video');
-            v.style.width = "100%"; v.style.height = "100%";
-            v.setAttribute('autoplay', ''); v.setAttribute('playsinline', ''); 
-            container.appendChild(v);
-            const player = new Plyr(v, { autoplay: true });
-            hls.loadSource(ch.url);
-            hls.attachMedia(v);
-            hls.on(Hls.Events.MANIFEST_PARSED, () => v.play().catch(() => { v.muted=true; v.play(); }));
+            video.src = item.url;
+            video.play();
+        }
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+    function startRadio(item) {
+        stopEverything(); // تنظيف سريع
+        const zone = document.getElementById('radio-player-zone');
+        zone.style.display = 'block';
+        document.getElementById('rtitle').textContent = item.name;
+        
+        // تغيير الأيقونة
+        const ricon = document.getElementById('ricon');
+        ricon.innerHTML = item.name.includes("كنيسة") ? '<i class="fas fa-church"></i>' : 
+                          item.name.includes("القرآن") ? '<i class="fas fa-mosque"></i>' : '<i class="fas fa-microphone-lines"></i>';
+
+        // التشغيل المباشر والسريع
+        radioAudio.src = item.url;
+        radioAudio.play(); // أمر تشغيل فوري
+        
+        // تحديث شكل الزر فوراً
+        document.getElementById('rplay').innerHTML = '<i class="fas fa-pause"></i>';
+        zone.classList.add('is-playing');
+        
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+    function toggleRadio() {
+        const btn = document.getElementById('rplay');
+        const zone = document.getElementById('radio-player-zone');
+        if (radioAudio.paused) {
+            radioAudio.play();
+            btn.innerHTML = '<i class="fas fa-pause"></i>';
+            zone.classList.add('is-playing');
+        } else {
+            radioAudio.pause();
+            btn.innerHTML = '<i class="fas fa-play"></i>';
+            zone.classList.remove('is-playing');
         }
     }
 
-    function closeTV() {
-        document.getElementById('tv-zone').style.display = 'none';
-        document.getElementById('video-wrapper').innerHTML = "";
+    function stopEverything() {
+        document.getElementById('tv-player-zone').style.display = 'none';
+        document.getElementById('radio-player-zone').style.display = 'none';
+        if (plyrPlayer) { plyrPlayer.destroy(); plyrPlayer = null; }
+        document.getElementById('video-container').innerHTML = "";
+        hls.stopLoad();
         hls.detachMedia();
+        radioAudio.pause();
+        radioAudio.src = "";
+        document.getElementById('rplay').innerHTML = '<i class="fas fa-play"></i>';
+        document.getElementById('radio-player-zone').classList.remove('is-playing');
     }
 
-    init();
+    window.onload = () => loadContent('TV', document.querySelector('.nav-item'));
 </script>
 </body>
 </html>
