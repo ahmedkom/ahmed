@@ -3,35 +3,35 @@
     "name": "الفار الطبخ",
     "type": "كارتون",
     "img": "https://c.top4top.io/p_3693qekh51.jpg",
-    "url": "https://www.youtube.com/embed/3a0kkopwuek?si=FeiLuiaIyEDHxzXi",
+    "url": "https://www.youtube.com/embed/3a0kkopwuek?autoplay=1&mute=1",
     "iframe": true
   },
   {
     "name": "Tom and Jerry Classic",
     "type": "كارتون",
     "img": "https://i.ytimg.com/vi/8m9y32_di5o/hqdefault.jpg",
-    "url": "https://www.dailymotion.com/video/x8tkl6e",
+    "url": "https://www.dailymotion.com/embed/video/x8tkl6e?autoplay=1",
     "iframe": true
   },
   {
     "name": "SpongeBob Full Episode",
     "type": "كارتون",
     "img": "https://i.ytimg.com/vi/1lO0l6bRW-M/hqdefault.jpg",
-    "url": "https://www.dailymotion.com/video/x7z4v1f",
+    "url": "https://www.dailymotion.com/embed/video/x7z4v1f?autoplay=1",
     "iframe": true
   },
   {
     "name": "Kids Fun Compilation",
     "type": "كارتون",
     "img": "https://i.ytimg.com/vi/A0RV8Dg8a9o/hqdefault.jpg",
-    "url": "https://www.dailymotion.com/video/x82q1el",
+    "url": "https://www.dailymotion.com/embed/video/x82q1el?autoplay=1",
     "iframe": true
   },
   {
     "name": "Arabic Cartoon Classics Mix",
     "type": "كارتون",
     "img": "https://i.ytimg.com/vi/6u4U5D7r2t8/hqdefault.jpg",
-    "url": "https://www.dailymotion.com/video/x7y3r6s",
+    "url": "https://www.dailymotion.com/embed/video/x7y3r6s?autoplay=1",
     "iframe": true
   }
 ]
