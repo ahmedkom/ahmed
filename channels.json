@@ -15,10 +15,5 @@
   { "name": "العربية", "url": "https://live.alarabiya.net/alarabiapublish/alarabiya.smil/playlist.m3u8", "img": "https://i.top4top.io/p_3691qpats9.jpg", "iframe": false },
   { "name": "الجزيره اخبار", "url": "https://www.youtube.com/embed/bNyUyrR0PHo?autoplay=1", "img": "https://b.top4top.io/p_3691rgu159.jpeg", "iframe": true },
   { "name": "MBC 2 USA", "url": "https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-1-usa/fdac3a4fc0473f1f56e07ec1d63a4b7b/index.m3u8", "img": "https://f.top4top.io/p_3692ibrdx1.jpg", "iframe": false  },
-  { 
-  "name": "MBC 3 USA", 
-  "url": "https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-3-usa/5d58265a862a476dc7f97694addb5ded/index.m3u8", 
-  "img": "https://g.top4top.io/p_3681vmifg9.jpg", 
-  "iframe": false 
-}
+  { "name": "MBC 3 USA", "url": "https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-3-usa/5d58265a862a476dc7f97694addb5ded/index.m3u8", "img": "https://g.top4top.io/p_3681vmifg9.jpg", "iframe": false }
 ]
