@@ -10,28 +10,28 @@
     "name": "Tom and Jerry Classic",
     "type": "كارتون",
     "img": "https://i.ytimg.com/vi/8m9y32_di5o/hqdefault.jpg",
-    "url": "https://www.dailymotion.com/embed/video/x8tkl6e?autoplay=1",
+    "url": "https://www.dailymotion.com/embed/video/x8tkl6e?autoplay=1&mute=1",
     "iframe": true
   },
   {
     "name": "SpongeBob Full Episode",
     "type": "كارتون",
     "img": "https://i.ytimg.com/vi/1lO0l6bRW-M/hqdefault.jpg",
-    "url": "https://www.dailymotion.com/embed/video/x7z4v1f?autoplay=1",
+    "url": "https://www.dailymotion.com/embed/video/x7z4v1f?autoplay=1&mute=1",
     "iframe": true
   },
   {
     "name": "Kids Fun Compilation",
     "type": "كارتون",
     "img": "https://i.ytimg.com/vi/A0RV8Dg8a9o/hqdefault.jpg",
-    "url": "https://www.dailymotion.com/embed/video/x82q1el?autoplay=1",
+    "url": "https://www.dailymotion.com/embed/video/x82q1el?autoplay=1&mute=1",
     "iframe": true
   },
   {
     "name": "Arabic Cartoon Classics Mix",
     "type": "كارتون",
     "img": "https://i.ytimg.com/vi/6u4U5D7r2t8/hqdefault.jpg",
-    "url": "https://www.dailymotion.com/embed/video/x7y3r6s?autoplay=1",
+    "url": "https://www.dailymotion.com/embed/video/x7y3r6s?autoplay=1&mute=1",
     "iframe": true
   }
 ]
