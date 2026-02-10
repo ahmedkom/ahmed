@@ -16,7 +16,7 @@
             --bg-color: #0a0a0a;
             --card-bg: #161616;
             --text-color: #ffffff;
-            font-display: swap; /* حل مشكلة عرض الخطوط */
+            font-display: swap; 
         }
 
         .light-mode {
@@ -33,7 +33,6 @@
         .container { max-width: 1100px; margin: auto; padding: 20px; text-align: center; }
         header { padding: 60px 0 40px; background: radial-gradient(circle at top, #004d4066 0%, transparent 85%); }
         
-        /* حل مشكلة أبعاد اللوجو وfetchpriority */
         .logo { width: 130px; height: 130px; border-radius: 25px; box-shadow: 0 0 25px var(--main-color); margin-bottom: 20px; }
         
         h1 { font-size: 3.2rem; margin: 10px 0; color: var(--main-color); }
@@ -55,9 +54,9 @@
         .section-title { font-size: 2rem; margin: 60px 0 30px; text-align: right; border-right: 5px solid var(--main-color); padding-right: 15px; }
         [dir="ltr"] .section-title { text-align: left; border-right: none; border-left: 5px solid var(--main-color); padding-left: 15px; }
 
-        .screenshots { display: flex; gap: 15px; overflow-x: auto; padding-bottom: 20px; }
-        /* تحديد أبعاد الصور لمنع Layout Shift */
-        .screenshots img { height: 450px; width: 202px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); object-fit: cover; }
+        .screenshots { display: flex; gap: 15px; overflow-x: auto; padding-bottom: 20px; justify-content: center; }
+        /* استخدام الأبعاد المطلوبة بدقة: 354px عرض و 788px طول */
+        .screenshots img { width: 354px; height: 788px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); object-fit: cover; }
 
         .review-card { background: var(--card-bg); padding: 25px; border-radius: 20px; text-align: right; margin-bottom: 20px; border-left: 4px solid var(--main-color); }
         [dir="ltr"] .review-card { text-align: left; border-left: none; border-right: 4px solid var(--main-color); }
@@ -78,8 +77,7 @@
 
 <header>
     <div class="container">
-        <img src="https://iili.io/fyTPGPS.webp" 
-             class="logo" alt="لوجو تطبيق وليد تي في" width="130" height="130" fetchpriority="high">
+        <img src="https://iili.io/fyTPGPS.webp" class="logo" alt="لوجو تطبيق وليد تي في" width="130" height="130" fetchpriority="high">
         
         <h1 id="titleText">WALID TV</h1>
         <span class="badge" id="badgeText">الإصدار 10.0 المباشر</span>
@@ -104,8 +102,104 @@
 <main class="container">
     <h2 class="section-title" id="title1">صور من داخل التطبيق</h2>
     <div class="screenshots">
-        <img src="https://iili.io/fyTS1nt.webp" alt="لقطة شاشة 1" width="202" height="450" loading="lazy">
-        <img src="https://iili.io/fyTSltI.webp" alt="لقطة شاشة 2" width="202" height="450" loading="lazy">
+        <img src="https://iili.io/fyTS1nt.webp" alt="لقطة شاشة 1" width="354" height="788" loading="lazy">
+        <img src="https://iili.io/fyTSltI.webp" alt="لقطة شاشة 2" width="354" height="788" loading="lazy">
+        <img src="https://iili.io/fyTSaup.webp" alt="لقطة شاشة 3" width="354" height="788" loading="lazy">
+    </div>
+
+    <h2 class="section-title" id="title2">آراء المستخدمين</h2>
+    <div class="review-card">
+        <div style="color:#ffc107">⭐⭐⭐⭐⭐</div>
+        <p id="rev1">"بصراحة أفضل تطبيق جربته للمباريات، سيرفرات قوية جداً وشغل عالي."</p>
+        <strong style="color:var(--main-color)">أحمد علي</strong>
+    </div>
+    <div class="review-card">
+        <div style="color:#ffc107">⭐⭐⭐⭐⭐</div>
+        <p id="rev2">"تطبيق خرافة والقنوات بتفتح في ثانية، شكراً يا وليد على المجهود!"</p>
+        <strong style="color:var(--main-color)">ياسين محمد</strong>
+    </div>
+    <div class="review-card">
+        <div style="color:#ffc107">⭐⭐⭐⭐⭐</div>
+        <p id="rev3">"التصميم الجديد للموقع والتطبيق في غاية الروعة، أنصح الجميع بتحميله."</p>
+        <strong style="color:var(--main-color)">محمود كامل</strong>
+    </div>
+
+    <h2 class="section-title" id="title3">سؤال وجواب</h2>
+    <div class="faq-item">
+        <h3 id="q1">1. هل تطبيق WALID TV مجاني؟</h3>
+        <p id="a1">نعم، التطبيق متاح بشكل مجاني بالكامل لجميع المستخدمين ولا يتطلب أي اشتراك شهري.</p>
+    </div>
+    <div class="faq-item">
+        <h3 id="q2">2. هل يعمل التطبيق على الشاشات الذكية؟</h3>
+        <p id="a2">بالتأكيد، يمكنك تثبيت ملف الـ APK على أي شاشة تعمل بنظام أندرويد (Android TV) أو TV Box.</p>
+    </div>
+    <div class="faq-item">
+        <h3 id="q3">3. ماذا أفعل إذا واجهت مشكلة في البث؟</h3>
+        <p id="a3">تأكد من تحديث التطبيق لآخر إصدار، أو قم بتغيير السيرفر من داخل القناة.</p>
+    </div>
+</main>
+
+<footer>
+    <p id="footText">&copy; 2026 WALID TV | جميع الحقوق محفوظة</p>
+    <p>نحن نوفر روابط بث عامة ولا نقوم باستضافة محتوى محمي على خوادمنا.</p>
+</footer>
+
+<script>
+    let currentLang = 'ar';
+    function toggleTheme() {
+        document.body.classList.toggle('light-mode');
+        document.getElementById('themeBtn').innerHTML = document.body.classList.contains('light-mode') ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+    }
+
+    function toggleLang() {
+        const html = document.getElementById('mainHtml');
+        if (currentLang === 'ar') {
+            html.dir = 'ltr'; currentLang = 'en'; html.lang = 'en';
+            document.getElementById('langBtn').innerText = 'عربي';
+            document.getElementById('badgeText').innerText = 'V10.0 Live Version';
+            document.getElementById('subTitleText').innerText = 'The best app to watch matches without cutting';
+            document.getElementById('dlBtn').innerText = 'Download APK Now';
+            document.getElementById('s1').innerText = '+500K Downloads';
+            document.getElementById('s2').innerText = '4.9/5 Rating';
+            document.getElementById('s3').innerText = 'Ultra Fast';
+            document.getElementById('title1').innerText = 'App Screenshots';
+            document.getElementById('title2').innerText = 'User Reviews';
+            document.getElementById('title3').innerText = 'FAQ';
+            document.getElementById('rev1').innerText = '"Best app I tried for matches, very strong servers."';
+            document.getElementById('rev2').innerText = '"Amazing app, channels open instantly!"';
+            document.getElementById('rev3').innerText = '"Great design, I highly recommend it."';
+            document.getElementById('q1').innerText = '1. Is WALID TV free?';
+            document.getElementById('a1').innerText = 'Yes, the app is completely free.';
+            document.getElementById('q2').innerText = '2. Does it work on Smart TVs?';
+            document.getElementById('a2').innerText = 'Yes, it works on Android TV.';
+            document.getElementById('q3').innerText = '3. Streaming issues?';
+            document.getElementById('a3').innerText = 'Update the app or change the server.';
+        } else {
+            html.dir = 'rtl'; currentLang = 'ar'; html.lang = 'ar';
+            document.getElementById('langBtn').innerText = 'English';
+            document.getElementById('badgeText').innerText = 'الإصدار 10.0 المباشر';
+            document.getElementById('subTitleText').innerText = 'أقوى تطبيق لمشاهدة القنوات والمباريات بدون تقطيع';
+            document.getElementById('dlBtn').innerText = 'تحميل APK الآن';
+            document.getElementById('s1').innerText = '+500K تحميل';
+            document.getElementById('s2').innerText = '4.9/5 تقييم';
+            document.getElementById('s3').innerText = 'فائق السرعة';
+            document.getElementById('title1').innerText = 'صور من داخل التطبيق';
+            document.getElementById('title2').innerText = 'آراء المستخدمين';
+            document.getElementById('title3').innerText = 'سؤال وجواب';
+            document.getElementById('rev1').innerText = '"بصراحة أفضل تطبيق جربته للمباريات، سيرفرات قوية جداً."';
+            document.getElementById('rev2').innerText = '"تطبيق خرافة والقنوات بتفتح في ثانية، شكراً!"';
+            document.getElementById('rev3').innerText = '"التصميم الجديد للموقع والتطبيق في غاية الروعة."';
+            document.getElementById('q1').innerText = '1. هل تطبيق WALID TV مجاني؟';
+            document.getElementById('a1').innerText = 'نعم، التطبيق متاح بشكل مجاني بالكامل.';
+            document.getElementById('q2').innerText = '2. هل يعمل التطبيق على الشاشات الذكية؟';
+            document.getElementById('a2').innerText = 'بالتأكيد، يعمل على جميع شاشات الأندرويد.';
+            document.getElementById('q3').innerText = '3. ماذا أفعل إذا واجهت مشكلة؟';
+            document.getElementById('a3').innerText = 'تأكد من التحديث أو قم بتغيير السيرفر.';
+        }
+    }
+</script>
+</body>
+</html>        <img src="https://iili.io/fyTSltI.webp" alt="لقطة شاشة 2" width="202" height="450" loading="lazy">
         <img src="https://iili.io/fyTSaup.webp" alt="لقطة شاشة 3" width="202" height="450" loading="lazy">
     </div>
 
