@@ -1,179 +1,19 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>WALID VIP - Fast Stream</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
-    <style>
-        :root { --primary: #fad390; --main-red: #cc0000; --dark-bg: #080808; --card-bg: #121212; }
-        body { background: var(--dark-bg); color: #fff; font-family: 'Cairo', sans-serif; margin: 0; padding-bottom: 90px; }
-        header { padding: 0 20px; background: #000; border-bottom: 2px solid var(--main-red); display: flex; justify-content: space-between; align-items: center; height: 60px; position: sticky; top: 0; z-index: 1000; }
-        .logo { font-weight: 900; font-size: 20px; }
-        .logo span { color: var(--main-red); }
+<?xml version="1.0" encoding="UTF-8"?>
+<WalidTvApp>
+    <AppConfig>
+        <AppName>WALID TV</AppName>
+        <PackageName>walidelgoker.apk</PackageName>
+        <LatestVersion>10.0</LatestVersion>
+        <UpdateUrl>https://d.apkpure.com/b/APK/walidelgoker.apk?version=latest</UpdateUrl>
+        <LogoUrl>رابط_صورة_اللوجو_هنا</LogoUrl>
+        <UpdateMessage>إصدار جديد 10.0 متاح الآن! استمتع بأحدث القنوات والبانرات.</UpdateMessage>
+    </AppConfig>
 
-        #tv-player-zone, #radio-player-zone { display: none; width: 100%; transition: 0.3s; }
-        .video-wrapper { width: 100%; aspect-ratio: 16/9; background: #000; }
-
-        #radio-player-zone { 
-            background: linear-gradient(135deg, #0c2461 0%, #1e3799 100%);
-            margin: 10px auto; width: 95%; padding: 20px; border-radius: 20px; text-align: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-        }
-        .radio-icon { font-size: 50px; color: var(--primary); margin-bottom: 10px; }
-        .radio-title { color: var(--primary); font-size: 18px; margin-bottom: 15px; font-weight: bold; }
-        .radio-btns { display: flex; justify-content: center; gap: 15px; }
-        .btn-r { background: var(--primary); border: none; width: 55px; height: 55px; border-radius: 50%; color: #0c2461; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-        
-        .close-p { background: var(--main-red); color: #fff; padding: 4px 10px; border-radius: 5px; cursor: pointer; font-size: 12px; margin: 5px 10px; display: inline-block; }
-
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 12px; padding: 15px; }
-        .card { background: var(--card-bg); border-radius: 12px; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; border: 1px solid #1a1a1a; }
-        .card img { width: 80%; height: 80%; object-fit: contain; }
-
-        .nav-bar { position: fixed; bottom: 0; width: 100%; background: #000; display: flex; justify-content: center; gap: 50px; padding: 10px 0; border-top: 1px solid #222; z-index: 1000; }
-        .nav-item { color: #555; text-align: center; font-size: 12px; cursor: pointer; }
-        .nav-item.active { color: var(--main-red); }
-        .nav-item i { font-size: 20px; }
-
-        #loading { position: fixed; inset: 0; background: #000; z-index: 2000; display: none; align-items: center; justify-content: center; }
-        .is-playing .radio-icon { animation: pulse 1.5s infinite linear; }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
-    </style>
-</head>
-<body>
-
-<div id="loading"><i class="fas fa-circle-notch fa-spin" style="font-size: 40px; color: var(--main-red);"></i></div>
-
-<header>
-    <div class="logo">WALID <span>VIP</span></div>
-    <i class="fas fa-search" style="color:var(--main-red)"></i>
-</header>
-
-<div id="tv-player-zone">
-    <div onclick="stopEverything()" class="close-p">إغلاق القناة ×</div>
-    <div class="video-wrapper" id="video-container"></div>
-</div>
-
-<div id="radio-player-zone">
-    <div onclick="stopEverything()" class="close-p" style="background:rgba(0,0,0,0.3)">إخفاء الراديو ×</div>
-    <div class="radio-icon" id="ricon"><i class="fas fa-microphone-lines"></i></div>
-    <div class="radio-title" id="rtitle">اسم الإذاعة</div>
-    <div class="radio-btns">
-        <button class="btn-r" id="rplay" onclick="toggleRadio()"><i class="fas fa-play"></i></button>
-        <button class="btn-r" onclick="stopEverything()"><i class="fas fa-stop"></i></button>
-    </div>
-</div>
-
-<div class="grid" id="main-grid"></div>
-
-<nav class="nav-bar">
-    <div class="nav-item active" onclick="loadContent('TV', this)"><i class="fas fa-tv"></i><br>القنوات</div>
-    <div class="nav-item" onclick="loadContent('RD', this)"><i class="fas fa-microphone"></i><br>الراديو</div>
-</nav>
-
-<script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-
-<script>
-    const API_BASE = "https://raw.githubusercontent.com/ahmedkom/ahmed/refs/heads/main/";
-    let radioAudio = new Audio();
-    let hls = new Hls();
-    let plyrPlayer = null;
-
-    async function loadContent(type, el) {
-        stopEverything();
-        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-        el.classList.add('active');
-        const grid = document.getElementById('main-grid');
-        grid.innerHTML = "";
-        document.getElementById('loading').style.display = 'flex';
-
-        try {
-            const fileName = (type === 'TV') ? "channels.json" : "RADIO.json";
-            const res = await fetch(API_BASE + fileName + "?v=" + Date.now());
-            const data = await res.json();
-            data.forEach(item => {
-                const card = document.createElement('div');
-                card.className = 'card';
-                card.innerHTML = `<img src="${item.img}">`;
-                card.onclick = () => { (type === 'TV') ? startTV(item) : startRadio(item) };
-                grid.appendChild(card);
-            });
-        } catch (e) { console.log("Load Error"); }
-        document.getElementById('loading').style.display = 'none';
-    }
-
-    function startTV(item) {
-        stopEverything();
-        document.getElementById('tv-player-zone').style.display = 'block';
-        const container = document.getElementById('video-container');
-        const video = document.createElement('video');
-        container.appendChild(video);
-        plyrPlayer = new Plyr(video, { autoplay: true });
-        if (Hls.isSupported()) {
-            hls.loadSource(item.url);
-            hls.attachMedia(video);
-            hls.on(Hls.Events.MANIFEST_PARSED, () => video.play());
-        } else {
-            video.src = item.url;
-            video.play();
-        }
-        window.scrollTo({top: 0, behavior: 'smooth'});
-    }
-
-    function startRadio(item) {
-        stopEverything(); // تنظيف سريع
-        const zone = document.getElementById('radio-player-zone');
-        zone.style.display = 'block';
-        document.getElementById('rtitle').textContent = item.name;
-        
-        // تغيير الأيقونة
-        const ricon = document.getElementById('ricon');
-        ricon.innerHTML = item.name.includes("كنيسة") ? '<i class="fas fa-church"></i>' : 
-                          item.name.includes("القرآن") ? '<i class="fas fa-mosque"></i>' : '<i class="fas fa-microphone-lines"></i>';
-
-        // التشغيل المباشر والسريع
-        radioAudio.src = item.url;
-        radioAudio.play(); // أمر تشغيل فوري
-        
-        // تحديث شكل الزر فوراً
-        document.getElementById('rplay').innerHTML = '<i class="fas fa-pause"></i>';
-        zone.classList.add('is-playing');
-        
-        window.scrollTo({top: 0, behavior: 'smooth'});
-    }
-
-    function toggleRadio() {
-        const btn = document.getElementById('rplay');
-        const zone = document.getElementById('radio-player-zone');
-        if (radioAudio.paused) {
-            radioAudio.play();
-            btn.innerHTML = '<i class="fas fa-pause"></i>';
-            zone.classList.add('is-playing');
-        } else {
-            radioAudio.pause();
-            btn.innerHTML = '<i class="fas fa-play"></i>';
-            zone.classList.remove('is-playing');
-        }
-    }
-
-    function stopEverything() {
-        document.getElementById('tv-player-zone').style.display = 'none';
-        document.getElementById('radio-player-zone').style.display = 'none';
-        if (plyrPlayer) { plyrPlayer.destroy(); plyrPlayer = null; }
-        document.getElementById('video-container').innerHTML = "";
-        hls.stopLoad();
-        hls.detachMedia();
-        radioAudio.pause();
-        radioAudio.src = "";
-        document.getElementById('rplay').innerHTML = '<i class="fas fa-play"></i>';
-        document.getElementById('radio-player-zone').classList.remove('is-playing');
-    }
-
-    window.onload = () => loadContent('TV', document.querySelector('.nav-item'));
-</script>
-</body>
-</html>
+    <BannerSlider>
+        <Item video_url="https://www.youtube.com/embed/Jjz_CimeJLQ?autoplay=1&amp;mute=0&amp;loop=1&amp;playlist=Jjz_CimeJLQ&amp;enablejsapi=1" />
+        <Item video_url="https://www.youtube.com/embed/cPMZWGHxYZM?autoplay=1&amp;mute=0&amp;loop=1&amp;playlist=cPMZWGHxYZM&amp;enablejsapi=1" />
+        <Item video_url="https://www.youtube.com/embed/wfsPNVCrtsw?autoplay=1&amp;mute=0&amp;loop=1&amp;playlist=wfsPNVCrtsw&amp;enablejsapi=1" />
+        <Item video_url="https://www.youtube.com/embed/hWtqy8qWndQ?autoplay=1&amp;mute=0&amp;loop=1&amp;playlist=hWtqy8qWndQ&amp;enablejsapi=1" />
+        <Item video_url="https://www.youtube.com/embed/q0-QD_ngki8?autoplay=1&amp;mute=0&amp;loop=1&amp;playlist=q0-QD_ngki8&amp;enablejsapi=1" />
+    </BannerSlider>
+</WalidTvApp>
