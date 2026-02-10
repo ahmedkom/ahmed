@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl" id="mainHtml">
 <head>
-    <meta name="google-site-verification" content="lafATKHn5S2SgyXnvkedItIBZAucjWwgQedhjrYOsgE" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WALID TV | الموقع الرسمي</title>
+    <title>WALID TV | الموقع الرسمي لتحميل تطبيق وليد تي في</title>
+    <meta name="description" content="تحميل تطبيق WALID TV لمشاهدة القنوات والمباريات مباشرة بدون تقطيع. الإصدار الأخير مجاناً للأندرويد.">
+    <meta name="google-site-verification" content="lafATKHn5S2SgyXnvkedItIBZAucjWwgQedhjrYOsgE" />
+    
     <link rel="icon" type="image/png" href="https://www.appcreator24.com/srv/imgs/gen/3393792_ico.png?ts=1770724556">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
+    
     <style>
         :root {
             --main-color: #00e5ff;
@@ -27,34 +30,34 @@
         body { font-family: 'Segoe UI', Tahoma, sans-serif; background-color: var(--bg-color); color: var(--text-color); margin: 0; transition: 0.3s; overflow-x: hidden; }
         
         .top-controls { position: fixed; top: 15px; left: 15px; display: flex; gap: 10px; z-index: 1000; }
-        .ctrl-btn { background: var(--card-bg); border: 1px solid var(--main-color); color: var(--text-color); padding: 8px 15px; border-radius: 50px; cursor: pointer; font-weight: bold; }
+        .ctrl-btn { background: var(--card-bg); border: 1px solid var(--main-color); color: var(--text-color); padding: 10px 18px; border-radius: 50px; cursor: pointer; font-weight: bold; min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; }
 
         .container { max-width: 1100px; margin: auto; padding: 20px; text-align: center; }
         header { padding: 60px 0 40px; background: radial-gradient(circle at top, #004d4066 0%, transparent 85%); }
-        .logo { width: 130px; border-radius: 25px; box-shadow: 0 0 25px var(--main-color); margin-bottom: 20px; }
+        .logo { width: 130px; height: 130px; border-radius: 25px; box-shadow: 0 0 25px var(--main-color); margin-bottom: 20px; }
         
         h1 { font-size: 3.2rem; margin: 10px 0; color: var(--main-color); }
-        .badge { background: #ffeb3b; color: black; padding: 5px 15px; border-radius: 50px; font-weight: bold; }
+        .badge { background: #333; color: #ffeb3b; padding: 5px 15px; border-radius: 50px; font-weight: bold; border: 1px solid #ffeb3b; display: inline-block; }
 
         .stats { display: flex; justify-content: center; gap: 20px; margin: 30px 0; flex-wrap: wrap; }
         .stat-item { background: var(--card-bg); padding: 15px; border-radius: 15px; min-width: 110px; border: 1px solid #333; }
         .stat-item i { color: var(--main-color); font-size: 1.5rem; margin-bottom: 8px; }
 
         .btn-download { 
-            background: linear-gradient(45deg, var(--main-color), #00b8d4); 
-            color: black; padding: 20px 55px; text-decoration: none; border-radius: 50px; 
+            background: #00b8d4; 
+            color: #000; padding: 20px 55px; text-decoration: none; border-radius: 50px; 
             font-weight: bold; font-size: 1.5rem; display: inline-block; animation: pulse 2s infinite; 
         }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
 
         .social-links { display: flex; justify-content: center; gap: 15px; margin-top: 25px; }
-        .social-item { width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; }
+        .social-item { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; }
 
         .section-title { font-size: 2rem; margin: 60px 0 30px; text-align: right; border-right: 5px solid var(--main-color); padding-right: 15px; }
         [dir="ltr"] .section-title { text-align: left; border-right: none; border-left: 5px solid var(--main-color); padding-left: 15px; }
 
-        .screenshots { display: flex; gap: 15px; overflow-x: auto; padding-bottom: 20px; }
-        .screenshots img { height: 450px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .screenshots { display: flex; gap: 15px; overflow-x: auto; padding-bottom: 20px; scroll-behavior: smooth; }
+        .screenshots img { height: 450px; width: auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
 
         .review-card { background: var(--card-bg); padding: 25px; border-radius: 20px; text-align: right; margin-bottom: 20px; border-left: 4px solid var(--main-color); }
         [dir="ltr"] .review-card { text-align: left; border-left: none; border-right: 4px solid var(--main-color); }
@@ -63,93 +66,82 @@
         [dir="ltr"] .faq-item { text-align: left; }
         .faq-item h3 { color: var(--main-color); margin-top: 0; }
 
-        /* تعديل حجم التذييل (Footer) ليكون أصغر */
-        footer { 
-            padding: 15px; 
-            border-top: 1px solid #333; 
-            margin-top: 40px; 
-            color: #777; 
-            font-size: 0.75rem; /* خط أصغر */
-            text-align: center;
-        }
-        footer p { margin: 5px 0; }
+        footer { padding: 30px 15px; border-top: 1px solid #333; margin-top: 40px; color: #aaa; font-size: 0.9rem; text-align: center; }
     </style>
 </head>
 <body>
 
 <div class="top-controls">
-    <button class="ctrl-btn" onclick="toggleTheme()" id="themeBtn"><i class="fas fa-moon"></i></button>
-    <button class="ctrl-btn" onclick="toggleLang()" id="langBtn">English</button>
+    <button class="ctrl-btn" onclick="toggleTheme()" id="themeBtn" aria-label="تبديل الوضع المظلم"><i class="fas fa-moon"></i></button>
+    <button class="ctrl-btn" onclick="toggleLang()" id="langBtn" aria-label="تغيير اللغة">English</button>
 </div>
 
 <header>
     <div class="container">
-        <img src="https://www.appcreator24.com/srv/imgs/gen/3393792_ico.png?ts=1770724556" class="logo">
+        <img src="https://www.appcreator24.com/srv/imgs/gen/3393792_ico.png?ts=1770724556" class="logo" alt="لوجو تطبيق وليد تي في" width="130" height="130">
         <h1 id="titleText">WALID TV</h1>
         <span class="badge" id="badgeText">الإصدار 10.0 المباشر</span>
         <p id="subTitleText">أقوى تطبيق لمشاهدة القنوات والمباريات بدون تقطيع</p>
         
         <div class="stats">
-            <div class="stat-item"><i class="fas fa-download"></i><br><b id="s1">+500K تحميل</b></div>
-            <div class="stat-item"><i class="fas fa-star"></i><br><b id="s2">4.9/5 تقييم</b></div>
-            <div class="stat-item"><i class="fas fa-bolt"></i><br><b id="s3">فائق السرعة</b></div>
+            <div class="stat-item"><i class="fas fa-download"></i><br><span id="s1"><b>+500K تحميل</b></span></div>
+            <div class="stat-item"><i class="fas fa-star"></i><br><span id="s2"><b>4.9/5 تقييم</b></span></div>
+            <div class="stat-item"><i class="fas fa-bolt"></i><br><span id="s3"><b>فائق السرعة</b></span></div>
         </div>
 
         <a href="https://d.apkpure.com/b/APK/walidelgoker.apk?version=latest" class="btn-download" id="dlBtn">تحميل APK الآن</a>
 
         <div class="social-links">
-            <a href="tg://resolve?domain=o_v2o" class="social-item" style="background:var(--telegram)">
-    <i class="fab fa-telegram-plane"></i>
-</a>
-            <a href="https://youtube.com/@techgalaxy2" class="social-item" style="background:var(--youtube)"><i class="fab fa-youtube"></i></a>
-            <a href="https://wa.me/+201028983310" class="social-item" style="background:var(--whatsapp)"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://t.me/o_v2o" class="social-item" style="background:var(--telegram)" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+            <a href="https://youtube.com/@techgalaxy2" class="social-item" style="background:var(--youtube)" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://wa.me/+201028983310" class="social-item" style="background:var(--whatsapp)" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
     </div>
 </header>
 
-<div class="container">
+<main class="container">
     <h2 class="section-title" id="title1">صور من داخل التطبيق</h2>
     <div class="screenshots">
-        <img src="https://c.top4top.io/p_3693juamh0.jpg">
-        <img src="https://e.top4top.io/p_3693tlvru2.jpg">
-        <img src="https://g.top4top.io/p_36931mtgm9.jpg">
+        <img src="https://c.top4top.io/p_3693juamh0.jpg" alt="لقطة شاشة 1" loading="lazy">
+        <img src="https://e.top4top.io/p_3693tlvru2.jpg" alt="لقطة شاشة 2" loading="lazy">
+        <img src="https://g.top4top.io/p_36931mtgm9.jpg" alt="لقطة شاشة 3" loading="lazy">
     </div>
 
     <h2 class="section-title" id="title2">آراء المستخدمين</h2>
-    <div class="review-card">
-        <div style="color:#ffc107">⭐⭐⭐⭐⭐</div>
+    <article class="review-card">
+        <div style="color:#ffc107" aria-label="تقييم 5 نجوم">⭐⭐⭐⭐⭐</div>
         <p id="rev1">"بصراحة أفضل تطبيق جربته للمباريات، سيرفرات قوية جداً وشغل عالي."</p>
         <strong style="color:var(--main-color)">أحمد علي</strong>
-    </div>
-    <div class="review-card">
-        <div style="color:#ffc107">⭐⭐⭐⭐⭐</div>
+    </article>
+    <article class="review-card">
+        <div style="color:#ffc107" aria-label="تقييم 5 نجوم">⭐⭐⭐⭐⭐</div>
         <p id="rev2">"تطبيق خرافة والقنوات بتفتح في ثانية، شكراً يا وليد على المجهود!"</p>
         <strong style="color:var(--main-color)">ياسين محمد</strong>
-    </div>
-    <div class="review-card">
-        <div style="color:#ffc107">⭐⭐⭐⭐⭐</div>
+    </article>
+    <article class="review-card">
+        <div style="color:#ffc107" aria-label="تقييم 5 نجوم">⭐⭐⭐⭐⭐</div>
         <p id="rev3">"التصميم الجديد للموقع والتطبيق في غاية الروعة، أنصح الجميع بتحميله."</p>
         <strong style="color:var(--main-color)">محمود كامل</strong>
-    </div>
+    </article>
 
     <h2 class="section-title" id="title3">سؤال وجواب</h2>
-    <div class="faq-item">
+    <section class="faq-item">
         <h3 id="q1">1. هل تطبيق WALID TV مجاني؟</h3>
         <p id="a1">نعم، التطبيق متاح بشكل مجاني بالكامل لجميع المستخدمين ولا يتطلب أي اشتراك شهري.</p>
-    </div>
-    <div class="faq-item">
+    </section>
+    <section class="faq-item">
         <h3 id="q2">2. هل يعمل التطبيق على الشاشات الذكية؟</h3>
         <p id="a2">بالتأكيد، يمكنك تثبيت ملف الـ APK على أي شاشة تعمل بنظام أندرويد (Android TV) أو TV Box.</p>
-    </div>
-    <div class="faq-item">
+    </section>
+    <section class="faq-item">
         <h3 id="q3">3. ماذا أفعل إذا واجهت مشكلة في البث؟</h3>
         <p id="a3">تأكد من تحديث التطبيق لآخر إصدار، أو قم بتغيير السيرفر من داخل القناة.</p>
-    </div>
-</div>
+    </section>
+</main>
 
 <footer>
     <p id="footText">&copy; 2026 WALID TV | جميع الحقوق محفوظة</p>
-    <p>نحن نوفر روابط بث عامة ولا نقوم باستضافة أي محتوى محمي على خوادمنا.</p>
+    <p>نحن نوفر روابط بث عامة ولا نقوم باستضافة محتوى محمي على خوادمنا.</p>
 </footer>
 
 <script>
@@ -162,35 +154,47 @@
     function toggleLang() {
         const html = document.getElementById('mainHtml');
         if (currentLang === 'ar') {
-            html.dir = 'ltr'; currentLang = 'en';
+            html.dir = 'ltr'; currentLang = 'en'; html.lang = 'en';
             document.getElementById('langBtn').innerText = 'عربي';
             document.getElementById('badgeText').innerText = 'V10.0 Live Version';
-            document.getElementById('subTitleText').innerText = 'The most powerful app to watch channels and matches without cutting';
+            document.getElementById('subTitleText').innerText = 'The best app to watch channels and matches without cutting';
             document.getElementById('dlBtn').innerText = 'Download APK Now';
-            document.getElementById('s1').innerText = '+500K Downloads';
-            document.getElementById('s2').innerText = '4.9/5 Rating';
-            document.getElementById('s3').innerText = 'Ultra Fast';
+            document.getElementById('s1').innerHTML = '<b>+500K Downloads</b>';
+            document.getElementById('s2').innerHTML = '<b>4.9/5 Rating</b>';
+            document.getElementById('s3').innerHTML = '<b>Ultra Fast</b>';
             document.getElementById('title1').innerText = 'App Screenshots';
             document.getElementById('title2').innerText = 'User Reviews';
             document.getElementById('title3').innerText = 'FAQ';
-            document.getElementById('rev1').innerText = '"The best app I tried for matches, very strong servers."';
+            document.getElementById('rev1').innerText = '"Best app for matches, very strong servers."';
+            document.getElementById('rev2').innerText = '"Amazing app, channels open instantly!"';
+            document.getElementById('rev3').innerText = '"Great design, I highly recommend it."';
             document.getElementById('q1').innerText = '1. Is WALID TV free?';
-            document.getElementById('a1').innerText = 'Yes, the app is completely free for all users.';
+            document.getElementById('a1').innerText = 'Yes, the app is completely free.';
+            document.getElementById('q2').innerText = '2. Does it work on Smart TVs?';
+            document.getElementById('a2').innerText = 'Yes, it works on Android TV and TV Box.';
+            document.getElementById('q3').innerText = '3. Problems with streaming?';
+            document.getElementById('a3').innerText = 'Update the app or change the server.';
         } else {
-            html.dir = 'rtl'; currentLang = 'ar';
+            html.dir = 'rtl'; currentLang = 'ar'; html.lang = 'ar';
             document.getElementById('langBtn').innerText = 'English';
             document.getElementById('badgeText').innerText = 'الإصدار 10.0 المباشر';
             document.getElementById('subTitleText').innerText = 'أقوى تطبيق لمشاهدة القنوات والمباريات بدون تقطيع';
             document.getElementById('dlBtn').innerText = 'تحميل APK الآن';
-            document.getElementById('s1').innerText = '+500K تحميل';
-            document.getElementById('s2').innerText = '4.9/5 تقييم';
-            document.getElementById('s3').innerText = 'فائق السرعة';
+            document.getElementById('s1').innerHTML = '<b>+500K تحميل</b>';
+            document.getElementById('s2').innerHTML = '<b>4.9/5 تقييم</b>';
+            document.getElementById('s3').innerHTML = '<b>فائق السرعة</b>';
             document.getElementById('title1').innerText = 'صور من داخل التطبيق';
             document.getElementById('title2').innerText = 'آراء المستخدمين';
             document.getElementById('title3').innerText = 'سؤال وجواب';
             document.getElementById('rev1').innerText = '"بصراحة أفضل تطبيق جربته للمباريات، سيرفرات قوية جداً."';
+            document.getElementById('rev2').innerText = '"تطبيق خرافة والقنوات بتفتح في ثانية، شكراً!"';
+            document.getElementById('rev3').innerText = '"التصميم الجديد للموقع والتطبيق في غاية الروعة."';
             document.getElementById('q1').innerText = '1. هل تطبيق WALID TV مجاني؟';
             document.getElementById('a1').innerText = 'نعم، التطبيق متاح بشكل مجاني بالكامل.';
+            document.getElementById('q2').innerText = '2. هل يعمل التطبيق على الشاشات الذكية؟';
+            document.getElementById('a2').innerText = 'بالتأكيد، يعمل على جميع شاشات الأندرويد.';
+            document.getElementById('q3').innerText = '3. ماذا أفعل إذا واجهت مشكلة؟';
+            document.getElementById('a3').innerText = 'تأكد من التحديث أو قم بتغيير السيرفر.';
         }
     }
 </script>
