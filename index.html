@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WALID TV | الموقع الرسمي لتحميل تطبيق وليد تي في</title>
+    <title>WALID TV | الموقع الرسمي</title>
     <meta name="description" content="تحميل تطبيق WALID TV لمشاهدة القنوات والمباريات مباشرة بدون تقطيع. الإصدار الأخير مجاناً للأندرويد.">
-    <meta name="google-site-verification" content="lafATKHn5S2SgyXnvkedItIBZAucjWwgQedhjrYOsgE" />
     
     <link rel="icon" type="image/png" href="https://www.appcreator24.com/srv/imgs/gen/3393792_ico.png?ts=1770724556">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     
     <style>
         :root {
@@ -16,9 +16,7 @@
             --bg-color: #0a0a0a;
             --card-bg: #161616;
             --text-color: #ffffff;
-            --whatsapp: #25d366;
-            --telegram: #0088cc;
-            --youtube: #ff0000;
+            font-display: swap; /* حل مشكلة عرض الخطوط */
         }
 
         .light-mode {
@@ -30,10 +28,12 @@
         body { font-family: 'Segoe UI', Tahoma, sans-serif; background-color: var(--bg-color); color: var(--text-color); margin: 0; transition: 0.3s; overflow-x: hidden; }
         
         .top-controls { position: fixed; top: 15px; left: 15px; display: flex; gap: 10px; z-index: 1000; }
-        .ctrl-btn { background: var(--card-bg); border: 1px solid var(--main-color); color: var(--text-color); padding: 10px 18px; border-radius: 50px; cursor: pointer; font-weight: bold; min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; }
+        .ctrl-btn { background: var(--card-bg); border: 1px solid var(--main-color); color: var(--text-color); padding: 10px; border-radius: 50px; cursor: pointer; min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; }
 
         .container { max-width: 1100px; margin: auto; padding: 20px; text-align: center; }
         header { padding: 60px 0 40px; background: radial-gradient(circle at top, #004d4066 0%, transparent 85%); }
+        
+        /* حل مشكلة أبعاد اللوجو وfetchpriority */
         .logo { width: 130px; height: 130px; border-radius: 25px; box-shadow: 0 0 25px var(--main-color); margin-bottom: 20px; }
         
         h1 { font-size: 3.2rem; margin: 10px 0; color: var(--main-color); }
@@ -44,8 +44,7 @@
         .stat-item i { color: var(--main-color); font-size: 1.5rem; margin-bottom: 8px; }
 
         .btn-download { 
-            background: #00b8d4; 
-            color: #000; padding: 20px 55px; text-decoration: none; border-radius: 50px; 
+            background: #00b8d4; color: #000; padding: 20px 55px; text-decoration: none; border-radius: 50px; 
             font-weight: bold; font-size: 1.5rem; display: inline-block; animation: pulse 2s infinite; 
         }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
@@ -56,8 +55,9 @@
         .section-title { font-size: 2rem; margin: 60px 0 30px; text-align: right; border-right: 5px solid var(--main-color); padding-right: 15px; }
         [dir="ltr"] .section-title { text-align: left; border-right: none; border-left: 5px solid var(--main-color); padding-left: 15px; }
 
-        .screenshots { display: flex; gap: 15px; overflow-x: auto; padding-bottom: 20px; scroll-behavior: smooth; }
-        .screenshots img { height: 450px; width: auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .screenshots { display: flex; gap: 15px; overflow-x: auto; padding-bottom: 20px; }
+        /* تحديد أبعاد الصور لمنع Layout Shift */
+        .screenshots img { height: 450px; width: 202px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); object-fit: cover; }
 
         .review-card { background: var(--card-bg); padding: 25px; border-radius: 20px; text-align: right; margin-bottom: 20px; border-left: 4px solid var(--main-color); }
         [dir="ltr"] .review-card { text-align: left; border-left: none; border-right: 4px solid var(--main-color); }
@@ -72,29 +72,31 @@
 <body>
 
 <div class="top-controls">
-    <button class="ctrl-btn" onclick="toggleTheme()" id="themeBtn" aria-label="تبديل الوضع المظلم"><i class="fas fa-moon"></i></button>
-    <button class="ctrl-btn" onclick="toggleLang()" id="langBtn" aria-label="تغيير اللغة">English</button>
+    <button class="ctrl-btn" onclick="toggleTheme()" id="themeBtn" aria-label="تبديل الوضع"><i class="fas fa-moon"></i></button>
+    <button class="ctrl-btn" onclick="toggleLang()" id="langBtn">English</button>
 </div>
 
 <header>
     <div class="container">
-        <img src="https://www.appcreator24.com/srv/imgs/gen/3393792_ico.png?ts=1770724556" class="logo" alt="لوجو تطبيق وليد تي في" width="130" height="130">
+        <img src="https://www.appcreator24.com/srv/imgs/gen/3393792_ico.png?ts=1770724556" 
+             class="logo" alt="لوجو تطبيق وليد تي في" width="130" height="130" fetchpriority="high">
+        
         <h1 id="titleText">WALID TV</h1>
         <span class="badge" id="badgeText">الإصدار 10.0 المباشر</span>
         <p id="subTitleText">أقوى تطبيق لمشاهدة القنوات والمباريات بدون تقطيع</p>
         
         <div class="stats">
-            <div class="stat-item"><i class="fas fa-download"></i><br><span id="s1"><b>+500K تحميل</b></span></div>
-            <div class="stat-item"><i class="fas fa-star"></i><br><span id="s2"><b>4.9/5 تقييم</b></span></div>
-            <div class="stat-item"><i class="fas fa-bolt"></i><br><span id="s3"><b>فائق السرعة</b></span></div>
+            <div class="stat-item"><i class="fas fa-download"></i><br><b id="s1">+500K تحميل</b></div>
+            <div class="stat-item"><i class="fas fa-star"></i><br><b id="s2">4.9/5 تقييم</b></div>
+            <div class="stat-item"><i class="fas fa-bolt"></i><br><b id="s3">فائق السرعة</b></div>
         </div>
 
         <a href="https://d.apkpure.com/b/APK/walidelgoker.apk?version=latest" class="btn-download" id="dlBtn">تحميل APK الآن</a>
 
         <div class="social-links">
-            <a href="https://t.me/o_v2o" class="social-item" style="background:var(--telegram)" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
-            <a href="https://youtube.com/@techgalaxy2" class="social-item" style="background:var(--youtube)" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            <a href="https://wa.me/+201028983310" class="social-item" style="background:var(--whatsapp)" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://t.me/o_v2o" class="social-item" style="background:#0088cc" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+            <a href="https://youtube.com/@techgalaxy2" class="social-item" style="background:#ff0000" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://wa.me/+201028983310" class="social-item" style="background:#25d366" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
     </div>
 </header>
@@ -102,41 +104,41 @@
 <main class="container">
     <h2 class="section-title" id="title1">صور من داخل التطبيق</h2>
     <div class="screenshots">
-        <img src="https://c.top4top.io/p_3693juamh0.jpg" alt="لقطة شاشة 1" loading="lazy">
-        <img src="https://e.top4top.io/p_3693tlvru2.jpg" alt="لقطة شاشة 2" loading="lazy">
-        <img src="https://g.top4top.io/p_36931mtgm9.jpg" alt="لقطة شاشة 3" loading="lazy">
+        <img src="https://c.top4top.io/p_3693juamh0.jpg" alt="لقطة شاشة 1" width="202" height="450" loading="lazy">
+        <img src="https://e.top4top.io/p_3693tlvru2.jpg" alt="لقطة شاشة 2" width="202" height="450" loading="lazy">
+        <img src="https://g.top4top.io/p_36931mtgm9.jpg" alt="لقطة شاشة 3" width="202" height="450" loading="lazy">
     </div>
 
     <h2 class="section-title" id="title2">آراء المستخدمين</h2>
-    <article class="review-card">
-        <div style="color:#ffc107" aria-label="تقييم 5 نجوم">⭐⭐⭐⭐⭐</div>
+    <div class="review-card">
+        <div style="color:#ffc107">⭐⭐⭐⭐⭐</div>
         <p id="rev1">"بصراحة أفضل تطبيق جربته للمباريات، سيرفرات قوية جداً وشغل عالي."</p>
         <strong style="color:var(--main-color)">أحمد علي</strong>
-    </article>
-    <article class="review-card">
-        <div style="color:#ffc107" aria-label="تقييم 5 نجوم">⭐⭐⭐⭐⭐</div>
+    </div>
+    <div class="review-card">
+        <div style="color:#ffc107">⭐⭐⭐⭐⭐</div>
         <p id="rev2">"تطبيق خرافة والقنوات بتفتح في ثانية، شكراً يا وليد على المجهود!"</p>
         <strong style="color:var(--main-color)">ياسين محمد</strong>
-    </article>
-    <article class="review-card">
-        <div style="color:#ffc107" aria-label="تقييم 5 نجوم">⭐⭐⭐⭐⭐</div>
+    </div>
+    <div class="review-card">
+        <div style="color:#ffc107">⭐⭐⭐⭐⭐</div>
         <p id="rev3">"التصميم الجديد للموقع والتطبيق في غاية الروعة، أنصح الجميع بتحميله."</p>
         <strong style="color:var(--main-color)">محمود كامل</strong>
-    </article>
+    </div>
 
     <h2 class="section-title" id="title3">سؤال وجواب</h2>
-    <section class="faq-item">
+    <div class="faq-item">
         <h3 id="q1">1. هل تطبيق WALID TV مجاني؟</h3>
         <p id="a1">نعم، التطبيق متاح بشكل مجاني بالكامل لجميع المستخدمين ولا يتطلب أي اشتراك شهري.</p>
-    </section>
-    <section class="faq-item">
+    </div>
+    <div class="faq-item">
         <h3 id="q2">2. هل يعمل التطبيق على الشاشات الذكية؟</h3>
         <p id="a2">بالتأكيد، يمكنك تثبيت ملف الـ APK على أي شاشة تعمل بنظام أندرويد (Android TV) أو TV Box.</p>
-    </section>
-    <section class="faq-item">
+    </div>
+    <div class="faq-item">
         <h3 id="q3">3. ماذا أفعل إذا واجهت مشكلة في البث؟</h3>
         <p id="a3">تأكد من تحديث التطبيق لآخر إصدار، أو قم بتغيير السيرفر من داخل القناة.</p>
-    </section>
+    </div>
 </main>
 
 <footer>
@@ -157,22 +159,22 @@
             html.dir = 'ltr'; currentLang = 'en'; html.lang = 'en';
             document.getElementById('langBtn').innerText = 'عربي';
             document.getElementById('badgeText').innerText = 'V10.0 Live Version';
-            document.getElementById('subTitleText').innerText = 'The best app to watch channels and matches without cutting';
+            document.getElementById('subTitleText').innerText = 'The best app to watch matches without cutting';
             document.getElementById('dlBtn').innerText = 'Download APK Now';
-            document.getElementById('s1').innerHTML = '<b>+500K Downloads</b>';
-            document.getElementById('s2').innerHTML = '<b>4.9/5 Rating</b>';
-            document.getElementById('s3').innerHTML = '<b>Ultra Fast</b>';
+            document.getElementById('s1').innerText = '+500K Downloads';
+            document.getElementById('s2').innerText = '4.9/5 Rating';
+            document.getElementById('s3').innerText = 'Ultra Fast';
             document.getElementById('title1').innerText = 'App Screenshots';
             document.getElementById('title2').innerText = 'User Reviews';
             document.getElementById('title3').innerText = 'FAQ';
-            document.getElementById('rev1').innerText = '"Best app for matches, very strong servers."';
+            document.getElementById('rev1').innerText = '"Best app I tried for matches, very strong servers."';
             document.getElementById('rev2').innerText = '"Amazing app, channels open instantly!"';
             document.getElementById('rev3').innerText = '"Great design, I highly recommend it."';
             document.getElementById('q1').innerText = '1. Is WALID TV free?';
             document.getElementById('a1').innerText = 'Yes, the app is completely free.';
             document.getElementById('q2').innerText = '2. Does it work on Smart TVs?';
-            document.getElementById('a2').innerText = 'Yes, it works on Android TV and TV Box.';
-            document.getElementById('q3').innerText = '3. Problems with streaming?';
+            document.getElementById('a2').innerText = 'Yes, it works on Android TV.';
+            document.getElementById('q3').innerText = '3. Streaming issues?';
             document.getElementById('a3').innerText = 'Update the app or change the server.';
         } else {
             html.dir = 'rtl'; currentLang = 'ar'; html.lang = 'ar';
@@ -180,9 +182,9 @@
             document.getElementById('badgeText').innerText = 'الإصدار 10.0 المباشر';
             document.getElementById('subTitleText').innerText = 'أقوى تطبيق لمشاهدة القنوات والمباريات بدون تقطيع';
             document.getElementById('dlBtn').innerText = 'تحميل APK الآن';
-            document.getElementById('s1').innerHTML = '<b>+500K تحميل</b>';
-            document.getElementById('s2').innerHTML = '<b>4.9/5 تقييم</b>';
-            document.getElementById('s3').innerHTML = '<b>فائق السرعة</b>';
+            document.getElementById('s1').innerText = '+500K تحميل';
+            document.getElementById('s2').innerText = '4.9/5 تقييم';
+            document.getElementById('s3').innerText = 'فائق السرعة';
             document.getElementById('title1').innerText = 'صور من داخل التطبيق';
             document.getElementById('title2').innerText = 'آراء المستخدمين';
             document.getElementById('title3').innerText = 'سؤال وجواب';
