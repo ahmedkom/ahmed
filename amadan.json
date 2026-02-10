@@ -1,4 +1,3 @@
-[
 {
   "platform": "Young Play",
   "version": "1.0",
@@ -137,4 +136,6 @@
         {"id": "fan-alharb-e28", "episode_number": 28, "title": "الحلقة 28", "title_en": "Episode 28", "url": "", "image": "https://h.top4top.io/p_3693kvx1t9.jpeg", "duration": "50:00", "is_coming_soon": true},
         {"id": "fan-alharb-e29", "episode_number": 29, "title": "الحلقة 29", "title_en": "Episode 29", "url": "", "image": "https://h.top4top.io/p_3693kvx1t9.jpeg", "duration": "50:00", "is_coming_soon": true},
         {"id": "fan-alharb-e30", "episode_number": 30, "title": "الحلقة 30", "title_en": "Episode 30", "url": "", "image": "https://h.top4top.io/p_3693kvx1t9.jpeg", "duration": "50:00", "is_coming_soon": true}
+        }
       ]
+    }
