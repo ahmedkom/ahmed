@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: black; }
-        iframe { width: 100%; height: 100%; border: none; }
-    </style>
-</head>
-<body>
-    <iframe src="https://www.elahmad.com/tv/mobiletv/glarb.php?id=on_drama" 
-            allowfullscreen 
-            allow="autoplay; fullscreen; picture-in-picture">
-    </iframe>
-</body>
-</html>
+{
+  "channels": [
+    {
+      "name": "اون دراما",
+      "id": "on_drama",
+      "logo": "https://www.elahmad.com/tv/mobiletv/logo/on_drama.png",
+      "url": "https://raw.githack.com/username/repo/main/index.html",
+      "type": "iframe",
+      "user_agent": "Mozilla/5.0 (Linux; Android 10)",
+      "headers": {
+        "Referer": "https://www.elahmad.com/"
+      }
+    }
+  ]
+}
