@@ -1,7 +1,7 @@
 [
   { "name": "MBC Bollywood", "url": "https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-bollywood/546eb40d7dcf9a209255dd2496903764/index.m3u8", "img": "https://l.top4top.io/p_3670a59279.jpeg", "iframe": false },
   { "name": "القرآن الكريم", "url": "https://www.youtube.com/embed/N-jpTFSCYDY?autoplay=1", "img": "https://a.top4top.io/p_3671dv7xm9.jpg", "iframe": true },
-   { "name": "قناة المجد ", "url": "https://script.google.com/macros/s/AKfycbxglvHMeXpHtVs5y8bk3Njizo0xkmtIaZx4dVRnAFMz1bbcoPnM7s-PI0sOPhJ6HQUs3g/exec", "img": "https://l.top4top.io/p_3695vdwql1.jpg", "iframe": true },
+  { "name": "قناة المجد ", "url": "https://script.google.com/macros/s/AKfycbxglvHMeXpHtVs5y8bk3Njizo0xkmtIaZx4dVRnAFMz1bbcoPnM7s-PI0sOPhJ6HQUs3g/exec", "img": "https://l.top4top.io/p_3695vdwql1.jpg", "iframe": true },
   { "name": "MBC Masr", "url": "https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-masr/956eac069c78a35d47245db6cdbb1575/index.m3u8", "img": "https://l.top4top.io/p_3670uvwo89.jpeg", "iframe": false },
   { "name": "MBC Masr 2", "url": "https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-masr-2/754931856515075b0aabf0e583495c68/index.m3u8", "img": "https://j.top4top.io/p_3670kkvwx9.jpeg", "iframe": false },
   { "name": "Masr Drama", "url": "https://shd-gcp-live.lg.mncdn.com/live/bitmovin-mbc-masr-drama/567b703c19ede6598222de81b0e4508b/index.m3u8", "img": "https://f.top4top.io/p_3691d8ho18.jpg", "iframe": false },
