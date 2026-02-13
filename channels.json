@@ -1,6 +1,6 @@
 [
   { "name": "MBC Bollywood", "url": "https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-bollywood/546eb40d7dcf9a209255dd2496903764/index.m3u8", "img": "https://l.top4top.io/p_3670a59279.jpeg", "iframe": false },
-  { "name": "القرآن الكريم", "url": "https://www.youtube.com/embed/57LPEm2WSPE67bbdd2966898812bc/chunks_dvr.m3u8", "img": "https://a.top4top.io/p_3671dv7xm9.jpg", "iframe": true },
+  { "name": "القرآن الكريم", "url": "https://www.elahmad.com/tv/live/channel.php?id=almajd_quran", "img": "https://a.top4top.io/p_3671dv7xm9.jpg", "iframe": true },
   { "name": "MBC Masr", "url": "https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-masr/956eac069c78a35d47245db6cdbb1575/index.m3u8", "img": "https://l.top4top.io/p_3670uvwo89.jpeg", "iframe": false },
   { "name": "MBC Masr 2", "url": "https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-masr-2/754931856515075b0aabf0e583495c68/index.m3u8", "img": "https://j.top4top.io/p_3670kkvwx9.jpeg", "iframe": false },
   { "name": "Masr Drama", "url": "https://shd-gcp-live.lg.mncdn.com/live/bitmovin-mbc-masr-drama/567b703c19ede6598222de81b0e4508b/index.m3u8", "img": "https://f.top4top.io/p_3691d8ho18.jpg", "iframe": false },
@@ -18,8 +18,8 @@
   { "name": "MBC 3 USA", "url": "https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-3-usa/5d58265a862a476dc7f97694addb5ded/index.m3u8", "img": "https://j.top4top.io/p_3692u0l7k1.jpg", "iframe": false },
   { "name": "مسرح مصر", "url": "https://shls-live-enc.edgenextcdn.net/out/v1/8fae48b64942450cb5d60b3fb6910de0/index.m3u8", "img": "https://l.top4top.io/p_3692w665k1.jpg", "iframe": false },
   { "name": "Movies-Action", "url": "https://shls-live-ak.akamaized.net/out/v1/46079e838e65490c8299f902a7731168/index.m3u8", "img": "https://c.top4top.io/p_36946url61.jpg", "iframe": false },
-  { "name": "اون سبورت 1", "url": "https://script.google.com/macros/s/AKfycbzm9jxFhf9_KkYusJ-k1-zP_kmpIGckgpO734fKDibLUg27LqXTF4KQUsTwDlmzyitqWg/exec", "img": "https://g.top4top.io/p_3694henz71.png", "iframe": true },
-  { "name": "الحياه الحمرا", "url": "https://script.google.com/macros/s/AKfycbyF7P1zPpc_i6lsV8XJpdkkl2-uG3kmHeYcTWcv_2A7nKB4Xrh43JQ7CpiN5Cf_v2L1/exec", "img": "https://f.top4top.io/p_3695p6xy91.png", "iframe": true },
-  { "name": "الحياه دراما", "url": "https://script.google.com/macros/s/AKfycbzynuXr2JdBkOnyuDSROgjCgLpozerojv7fJC6dIiKq2fa6DjB-T02wLo1gS7KChlXaQg/exec", "img": "https://f.top4top.io/p_3695vqq1b1.jpg", "iframe": true },
+  { "name": "اون سبورت 1", "url": "https://www.elahmad.com/tv/mobiletv/glarb.php?id=on_time_sports1", "img": "https://g.top4top.io/p_3694henz71.png", "iframe": true },
+  { "name": "الحياه الحمرا", "url": "https://www.elahmad.com/tv/mobiletv/glarb.php?id=alhayat_1", "img": "https://f.top4top.io/p_3695p6xy91.png", "iframe": true },
+  { "name": "الحياه دراما", "url": "https://www.elahmad.com/tv/watchtv.php?id=alhayat_drama", "img": "https://f.top4top.io/p_3695vqq1b1.jpg", "iframe": true },
   { "name": "الزمالك", "url": "https://www.elahmad.com/tv/mobiletv/glarb.php?id=zamalek", "img": "https://f.top4top.io/p_3695vqq1b1.jpg", "iframe": true }
 ]
