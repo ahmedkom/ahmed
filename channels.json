@@ -23,9 +23,9 @@
   { "name": "الزمالك", "url": "https://www.elahmad.com/tv/mobiletv/glarb.php?id=zamalek", "img": "https://d.top4top.io/p_3695tuudl1.jpg", "iframe": true },
   { "name": "الاهلي", "url": "https://www.elahmad.com/tv/mobiletv/glarb.php?id=alahly_tv", "img": "https://a.top4top.io/p_3696o6lqh1.jpg", "iframe": true },
   { "name": "قناة فتافيت", "url": "https://www.elahmad.com/tv/mobiletv/glarb.php?id=fatafeat", "img": "https://d.top4top.io/p_3695qsh9l1.jpg", "iframe": true },
-  { "name": "ART أفلام 1", "url": "https://www.elahmad.com/tv/mobiletv/glarb.php?id=art_aflam1", "img": "https://i.ibb.co/vzR0j4y/art-aflam1.png", "iframe": true },
-  { "name": "ART أفلام 2", "url": "https://www.elahmad.com/tv/mobiletv/glarb.php?id=art_aflam2", "img": "https://i.ibb.co/9v6v9gN/art-aflam2.png", "iframe": true },
+  { "name": "ART أفلام 1", "url": "https://www.elahmad.com/tv/mobiletv/glarb.php?id=art_aflam_1", "img": "https://i.ibb.co/vzR0j4y/art-aflam1.png", "iframe": true },
+  { "name": "ART أفلام 2", "url": "https://www.elahmad.com/tv/mobiletv/glarb.php?id=art_aflam_2", "img": "https://i.ibb.co/9v6v9gN/art-aflam2.png", "iframe": true },
   { "name": "ART سينما", "url": "https://www.elahmad.com/tv/mobiletv/glarb.php?id=art_cinema", "img": "https://i.ibb.co/YyY2K4Z/art-cinema.png", "iframe": true },
-  { "name": "ART حكايات 1", "url": "https://www.elahmad.com/tv/mobiletv/glarb.php?id=art_hekajat", "img": "https://i.ibb.co/mBvX6fD/art-hekajat.png", "iframe": true },
-  { "name": "ART حكايات 2", "url": "https://www.elahmad.com/tv/mobiletv/glarb.php?id=art_hekajat2", "img": "https://i.ibb.co/R4m9r5x/art-hekajat2.png", "iframe": true }
+  { "name": "ART حكايات 1", "url": "https://www.elahmad.com/tv/mobiletv/glarb.php?id=hekayat", "img": "https://i.ibb.co/mBvX6fD/art-hekajat.png", "iframe": true },
+  { "name": "ART حكايات 2", "url": "https://www.elahmad.com/tv/mobiletv/glarb.php?id=hekayat_2", "img": "https://i.ibb.co/R4m9r5x/art-hekajat2.png", "iframe": true }
 ]
