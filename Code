@@ -1,103 +1,142 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دليل القنوات المباشرة</title>
-    <style>
-        :root {
-            --primary-color: #ff3e3e;
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --text-color: #f8fafc;
-        }
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: var(--bg-color); 
-            color: var(--text-color); 
-            margin: 0; 
-            padding: 0; /* إزالة الحواف الداخلية */
-            text-align: center;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        /* إزالة أي عنوان أو شريط جانبي، وعرض القنوات فقط */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 15px;
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 15px; /* مسافة بسيطة حول الشبكة لتبدو مريحة */
-            box-sizing: border-box;
-        }
-
-        .channel-btn {
-            background-color: var(--card-bg);
-            border: 1px solid #334155;
-            border-radius: 12px;
-            padding: 20px 10px;
-            text-decoration: none;
-            color: var(--text-color);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-
-        .channel-btn:hover {
-            background-color: var(--primary-color);
-            transform: translateY(-5px);
-            border-color: white;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-        }
-
-        .flag { font-size: 30px; }
-
-        @media (max-width: 480px) {
-            .grid-container { grid-template-columns: repeat(2, 1fr); }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- تمت إزالة العنوان h1 بالكامل، وعرض القنوات فقط -->
-    <div class="grid-container">
-        <a href="https://www.elahmad.com/tv/mobile-live-stream/?id=egypt" class="channel-btn"><span class="flag">🇪🇬</span>مصر</a>
-        <a href="https://www.elahmad.com/tv/mobile-live-stream/?id=bahrain" class="channel-btn"><span class="flag">🇧🇭</span>البحرين</a>
-        <a href="https://www.elahmad.com/tv/mobile-live-stream/?id=algeria" class="channel-btn"><span class="flag">🇩🇿</span>الجزائر</a>
-        <a href="https://www.elahmad.com/tv/mobile-live-stream/?id=kuwait" class="channel-btn"><span class="flag">🇰🇼</span>الكويت</a>
-        <a href="https://www.elahmad.com/tv/mobile-live-stream/?id=jordan" class="channel-btn"><span class="flag">🇯🇴</span>الأردن</a>
-        <a href="https://www.elahmad.com/tv/mobile-live-stream/?id=iraq" class="channel-btn"><span class="flag">🇮🇶</span>العراق</a>
-        <a href="https://www.elahmad.com/tv/mobile-live-stream/?id=mauritanie" class="channel-btn"><span class="flag">🇲🇷</span>موريتانيا</a>
-        <a href="https://www.elahmad.com/tv/mobile-live-stream/?id=libya" class="channel-btn"><span class="flag">🇱🇾</span>ليبيا</a>
-        <a href="https://www.elahmad.com/tv/mobile-live-stream/?id=lebanon" class="channel-btn"><span class="flag">🇱🇧</span>لبنان</a>
-        <a href="https://www.elahmad.com/tv/mobile-live-stream/?id=palestine" class="channel-btn"><span class="flag">🇵🇸</span>فلسطين</a>
-        <a href="https://www.elahmad.com/tv/mobile-live-stream/?id=oman" class="channel-btn"><span class="flag">🇴🇲</span>عمان</a>
-        <a href="https://www.elahmad.com/tv/mobile-live-stream/?id=morocco" class="channel-btn"><span class="flag">🇲🇦</span>المغرب</a>
-        <a href="https://www.elahmad.com/tv/mobile-live-stream/?id=sudan" class="channel-btn"><span class="flag">🇸🇩</span>السودان</a>
-        <a href="https://www.elahmad.com/tv/mobile-live-stream/?id=saudi" class="channel-btn"><span class="flag">🇸🇦</span>السعودية</a>
-        <a href="https://www.elahmad.com/tv/mobile-live-stream/?id=qatar" class="channel-btn"><span class="flag">🇶🇦</span>قطر</a>
-        <a href="https://www.elahmad.com/tv/mobile-live-stream/?id=uae" class="channel-btn"><span class="flag">🇦🇪</span>الإمارات</a>
-        <a href="https://www.elahmad.com/tv/mobile-live-stream/?id=tunisia" class="channel-btn"><span class="flag">🇹🇳</span>تونس</a>
-        <a href="https://www.elahmad.com/tv/mobile-live-stream/?id=syria" class="channel-btn"><span class="flag">🇸🇾</span>سوريا</a>
-        <a href="https://www.elahmad.com/tv/mobile-live-stream/?id=turkish_tv" class="channel-btn"><span class="flag">🇹🇷</span>تركيا</a>
-        <a href="https://www.elahmad.com/tv/mobile-live-stream/?id=somalia_tv" class="channel-btn"><span class="flag">🇸🇴</span>الصومال</a>
-        <a href="https://www.elahmad.com/tv/mobile-live-stream/?id=yemen" class="channel-btn"><span class="flag">🇾🇪</span>اليمن</a>
-        <a href="https://www.elahmad.com/tv/mobile-live-stream/?id=almajdtv" class="channel-btn"><span class="flag">📜</span>المجد</a>
-        <a href="https://www.elahmad.com/tv/mobile-live-stream/?id=arabic" class="channel-btn"><span class="flag">🌍</span>عربية عامة</a>
-        <a href="https://www.elahmad.com/tv/mobile-live-stream/?id=rotana_group" class="channel-btn"><span class="flag">🎶</span>روتانا</a>
-        <a href="https://www.elahmad.com/tv/mobile-live-stream/?id=artonline" class="channel-btn"><span class="flag">🎭</span>ART</a>
-        <a href="https://www.elahmad.com/tv/mobile-live-stream/?id=sports_live_tv" class="channel-btn"><span class="flag">⚽</span>الرياضة</a>
-        <a href="https://www.elahmad.com/tv/mobile-live-stream/?id=kids_tv" class="channel-btn"><span class="flag">🎡</span>الأطفال</a>
-        <a href="https://www.elahmad.com/tv/mbc-stream.php" class="channel-btn"><span class="flag">🎥</span>MBC</a>
-    </div>
-
-</body>
-</html>
+[
+  {
+    "name": "مصر",
+    "img": "https://flagcdn.com/w320/eg.png",
+    "url": "https://www.elahmad.com/tv/mobile-live-stream/?id=egypt"
+  },
+  {
+    "name": "البحرين",
+    "img": "https://flagcdn.com/w320/bh.png",
+    "url": "https://www.elahmad.com/tv/mobile-live-stream/?id=bahrain"
+  },
+  {
+    "name": "الجزائر",
+    "img": "https://flagcdn.com/w320/dz.png",
+    "url": "https://www.elahmad.com/tv/mobile-live-stream/?id=algeria"
+  },
+  {
+    "name": "الكويت",
+    "img": "https://flagcdn.com/w320/kw.png",
+    "url": "https://www.elahmad.com/tv/mobile-live-stream/?id=kuwait"
+  },
+  {
+    "name": "الأردن",
+    "img": "https://flagcdn.com/w320/jo.png",
+    "url": "https://www.elahmad.com/tv/mobile-live-stream/?id=jordan"
+  },
+  {
+    "name": "العراق",
+    "img": "https://flagcdn.com/w320/iq.png",
+    "url": "https://www.elahmad.com/tv/mobile-live-stream/?id=iraq"
+  },
+  {
+    "name": "موريتانيا",
+    "img": "https://flagcdn.com/w320/mr.png",
+    "url": "https://www.elahmad.com/tv/mobile-live-stream/?id=mauritanie"
+  },
+  {
+    "name": "ليبيا",
+    "img": "https://flagcdn.com/w320/ly.png",
+    "url": "https://www.elahmad.com/tv/mobile-live-stream/?id=libya"
+  },
+  {
+    "name": "لبنان",
+    "img": "https://flagcdn.com/w320/lb.png",
+    "url": "https://www.elahmad.com/tv/mobile-live-stream/?id=lebanon"
+  },
+  {
+    "name": "فلسطين",
+    "img": "https://flagcdn.com/w320/ps.png",
+    "url": "https://www.elahmad.com/tv/mobile-live-stream/?id=palestine"
+  },
+  {
+    "name": "عمان",
+    "img": "https://flagcdn.com/w320/om.png",
+    "url": "https://www.elahmad.com/tv/mobile-live-stream/?id=oman"
+  },
+  {
+    "name": "المغرب",
+    "img": "https://flagcdn.com/w320/ma.png",
+    "url": "https://www.elahmad.com/tv/mobile-live-stream/?id=morocco"
+  },
+  {
+    "name": "السودان",
+    "img": "https://flagcdn.com/w320/sd.png",
+    "url": "https://www.elahmad.com/tv/mobile-live-stream/?id=sudan"
+  },
+  {
+    "name": "السعودية",
+    "img": "https://flagcdn.com/w320/sa.png",
+    "url": "https://www.elahmad.com/tv/mobile-live-stream/?id=saudi"
+  },
+  {
+    "name": "قطر",
+    "img": "https://flagcdn.com/w320/qa.png",
+    "url": "https://www.elahmad.com/tv/mobile-live-stream/?id=qatar"
+  },
+  {
+    "name": "الإمارات",
+    "img": "https://flagcdn.com/w320/ae.png",
+    "url": "https://www.elahmad.com/tv/mobile-live-stream/?id=uae"
+  },
+  {
+    "name": "تونس",
+    "img": "https://flagcdn.com/w320/tn.png",
+    "url": "https://www.elahmad.com/tv/mobile-live-stream/?id=tunisia"
+  },
+  {
+    "name": "سوريا",
+    "img": "https://flagcdn.com/w320/sy.png",
+    "url": "https://www.elahmad.com/tv/mobile-live-stream/?id=syria"
+  },
+  {
+    "name": "تركيا",
+    "img": "https://flagcdn.com/w320/tr.png",
+    "url": "https://www.elahmad.com/tv/mobile-live-stream/?id=turkish_tv"
+  },
+  {
+    "name": "الصومال",
+    "img": "https://flagcdn.com/w320/so.png",
+    "url": "https://www.elahmad.com/tv/mobile-live-stream/?id=somalia_tv"
+  },
+  {
+    "name": "اليمن",
+    "img": "https://flagcdn.com/w320/ye.png",
+    "url": "https://www.elahmad.com/tv/mobile-live-stream/?id=yemen"
+  },
+  {
+    "name": "شبكة المجد",
+    "img": "https://i.ibb.co/L6n0p0Y/al-majd.png",
+    "url": "https://www.elahmad.com/tv/mobile-live-stream/?id=almajdtv"
+  },
+  {
+    "name": "عربية عامة",
+    "img": "https://i.ibb.co/Z8P3vS7/global.png",
+    "url": "https://www.elahmad.com/tv/mobile-live-stream/?id=arabic"
+  },
+  {
+    "name": "مجموعة روتانا",
+    "img": "https://i.ibb.co/kH7p0YV/rotana.png",
+    "url": "https://www.elahmad.com/tv/mobile-live-stream/?id=rotana_group"
+  },
+  {
+    "name": "قنوات ART",
+    "img": "https://i.ibb.co/6P7Z1tY/art.png",
+    "url": "https://www.elahmad.com/tv/mobile-live-stream/?id=artonline"
+  },
+  {
+    "name": "قنوات الرياضة",
+    "img": "https://i.ibb.co/SXC7n2p/sports.png",
+    "url": "https://www.elahmad.com/tv/mobile-live-stream/?id=sports_live_tv"
+  },
+  {
+    "name": "قنوات الأطفال",
+    "img": "https://i.ibb.co/vYm6z0Y/kids.png",
+    "url": "https://www.elahmad.com/tv/mobile-live-stream/?id=kids_tv"
+  },
+  {
+    "name": "باقة MBC",
+    "img": "https://i.ibb.co/YyYv5W5/mbc.png",
+    "url": "https://www.elahmad.com/tv/mbc-stream.php"
+  }
+]
