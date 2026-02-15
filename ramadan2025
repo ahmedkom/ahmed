@@ -1,0 +1,87 @@
+{
+  "metadata": {
+    "app_name": "Ramadan Pro TV",
+    "season": "Ramadan 2025",
+    "last_updated": "2026-02-14",
+    "provider": "Premium Streams"
+  },
+  "categories": [
+    {
+      "category_name": "الأكثر مشاهدة",
+      "content": [
+        {
+          "id": "ser_001",
+          "title": "العتاولة 2",
+          "year": "2025",
+          "rating": "4.9",
+          "story": "صراع جديد يشتعل في مدينة الإسكندرية بين نصار وخضر مع ظهور أعداء من الماضي.",
+          "poster_path": "https://img.downet.net/uploads/atawla_s2_poster.jpg",
+          "backdrop_path": "https://img.downet.net/uploads/atawla_s2_wide.jpg",
+          "cast": ["أحمد السقا", "طارق لطفي", "باسم سمرة"],
+          "total_episodes": 30,
+          "episodes": [
+            {
+              "episode_number": 1,
+              "title": "بداية العاصفة",
+              "duration": "45 min",
+              "stream_url": "https://s302d2.downet.net/download/atawla-e1.mp4",
+              "thumbnail": "https://img.downet.net/thumbs/atawla-e1.jpg"
+            },
+            {
+              "episode_number": 2,
+              "title": "المواجهة الأولى",
+              "duration": "42 min",
+              "stream_url": "https://s302d2.downet.net/download/atawla-e2.mp4",
+              "thumbnail": "https://img.downet.net/thumbs/atawla-e2.jpg"
+            }
+          ]
+        },
+        {
+          "id": "ser_002",
+          "title": "فهد البطل",
+          "year": "2025",
+          "rating": "4.7",
+          "story": "دراما شعبية حول بطل يواجه الظلم في منطقته ويحاول استعادة حقوق الضعفاء.",
+          "poster_path": "https://img.downet.net/uploads/fahd_poster.jpg",
+          "backdrop_path": "https://img.downet.net/uploads/fahd_wide.jpg",
+          "cast": ["أحمد العوضي", "ميرنا نور الدين"],
+          "total_episodes": 30,
+          "episodes": [
+            {
+              "episode_number": 1,
+              "title": "العودة",
+              "duration": "40 min",
+              "stream_url": "https://s302d2.downet.net/download/fahd-e1.mp4",
+              "thumbnail": "https://img.downet.net/thumbs/fahd-e1.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_name": "أعمال الرعب والخيال",
+      "content": [
+        {
+          "id": "ser_003",
+          "title": "المداح 5",
+          "year": "2025",
+          "rating": "4.8",
+          "story": "صراع صابر المداح المستمر مع عالم الجن، وظهور بوابات جديدة تهدد البشرية.",
+          "poster_path": "https://img.downet.net/uploads/maddah5_poster.jpg",
+          "backdrop_path": "https://img.downet.net/uploads/maddah5_wide.jpg",
+          "cast": ["حمادة هلال", "فتحي عبد الوهاب"],
+          "total_episodes": 30,
+          "episodes": [
+            {
+              "episode_number": 1,
+              "title": "اللغز القديم",
+              "duration": "38 min",
+              "stream_url": "https://s302d2.downet.net/download/maddah5-e1.mp4",
+              "thumbnail": "https://img.downet.net/thumbs/maddah5-e1.jpg"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
