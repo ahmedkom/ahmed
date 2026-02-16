@@ -3,7 +3,10 @@
     "name": "الفار الطبخ",
     "type": "كارتون",
     "img": "https://c.top4top.io/p_3693qekh51.jpg",
-    "url": "https://vsped-store9-vnz.cdnz.quest/hls2/01/00217/dbzjxb8a3wsw_n/index-v1-a1.m3u8?t=RYfYmRp9kSTOuIA0PGi0OkKlCJ_ZZu8_MTpHdp65of4&s=1770695176&e=43200&v=73458776&i=0.0&sp=0",
+     id="">
+            <i class="fal fa-play"></i> doodstream        </li>
+                <li class="Hoverable "
+            onclick="loadIframe(this, 'https://smoothpre.com/v/nb0seff08t0d');"
     "iframe": true
   },
   {
