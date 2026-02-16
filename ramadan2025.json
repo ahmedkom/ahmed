@@ -1,122 +1,142 @@
-{
-  "metadata": {
-    "app_name": "Ramadan Pro TV",
-    "season": "Ramadan 2025",
-    "last_updated": "2026-02-14",
-    "provider": "Premium Streams"
+[
+  {
+    "name": "فيلم Happy New Year مدبلج",
+    "sources": [
+      { "label": "سيرفر 1", "url": "https://s203d1.downet.net/download/1771367693/69939b8d86e00/Happy.New.Year.2014.WEB-DL.AKWAM.mp4" },
+      { "label": "سيرفر 2", "url": "ضع_الرابط_هنا" }
+    ],
+    "img": "https://img.downet.net/thumb/260x380/uploads/f0Fj1.jpg",
+    "isSeries": false
   },
-  "categories": [
-    {
-      "category_name": "الأكثر مشاهدة",
-      "content": [
-        {
-          "id": "ser_001",
-          "title": "العتاولة 2",
-          "year": "2025",
-          "rating": "4.9",
-          "story": "صراع جديد يشتعل في مدينة الإسكندرية بين نصار وخضر مع ظهور أعداء من الماضي.",
-          "poster_path": "https://img.downet.net/uploads/atawla_s2_poster.jpg",
-          "backdrop_path": "https://img.downet.net/uploads/atawla_s2_wide.jpg",
-          "cast": ["أحمد السقا", "طارق لطفي", "باسم سمرة"],
-          "total_episodes": 30,
-          "episodes": [
-            {
-              "episode_number": 1,
-              "title": "بداية العاصفة",
-              "duration": "45 min",
-              "stream_url": "https://s302d2.downet.net/download/atawla-e1.mp4",
-              "thumbnail": "https://img.downet.net/thumbs/atawla-e1.jpg"
-            },
-            {
-              "episode_number": 2,
-              "title": "المواجهة الأولى",
-              "duration": "42 min",
-              "stream_url": "https://s302d2.downet.net/download/atawla-e2.mp4",
-              "thumbnail": "https://img.downet.net/thumbs/atawla-e2.jpg"
-            }
-          ]
-        },
-        {
-          "id": "ser_002",
-          "title": "فهد البطل",
-          "year": "2025",
-          "rating": "4.7",
-          "story": "دراما شعبية حول بطل يواجه الظلم في منطقته ويحاول استعادة حقوق الضعفاء.",
-          "poster_path": "https://img.downet.net/uploads/fahd_poster.jpg",
-          "backdrop_path": "https://img.downet.net/uploads/fahd_wide.jpg",
-          "cast": ["أحمد العوضي", "ميرنا نور الدين"],
-          "total_episodes": 30,
-          "episodes": [
-            {
-              "episode_number": 1,
-              "title": "العودة",
-              "duration": "40 min",
-              "stream_url": "https://s302d2.downet.net/download/fahd-e1.mp4",
-              "thumbnail": "https://img.downet.net/thumbs/fahd-e1.jpg"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "category_name": "أعمال الرعب والخيال",
-      "content": [
-        {
-          "id": "ser_003",
-          "title": "المداح 5",
-          "year": "2025",
-          "rating": "4.8",
-          "story": "صراع صابر المداح المستمر مع عالم الجن، وظهور بوابات جديدة تهدد البشرية.",
-          "poster_path": "https://c.top4top.io/p_3698oz5kb1.jpg",
-          "backdrop_path": "https://c.top4top.io/p_3698oz5kb1.jpg",
-          "cast": ["حمادة هلال", "فتحي عبد الوهاب"],
-          "total_episodes": 30,
-          "episodes": [
-            {
-              "episode_number": 1,
-              "title": "اللغز القديم",
-              "duration": "38 min",
-              "stream_url": "https://s302d1.downet.net/download/1771281751/69924bd7e91a6/El.Maddah.Ostouret.El.Ahd.S05.E01.AKWAM.mp4",
-              "thumbnail": "https://c.top4top.io/p_3698oz5kb1.jpg"
-            },
-            {
-              "episode_number": 2,
-              "title": "حروبه ضد الجن",
-              "duration": "38 min",
-              "stream_url": "https://s302d1.downet.net/download/1771281914/69924c7aee375/El Maddah Ostouret El Ahd.S05E02.AKWAM.mp4",
-              "thumbnail": "https://c.top4top.io/p_3698oz5kb1.jpg"
-            },
-            {
-              "episode_number": 3,
-              "title": "مواجهة بنات إبليس",
-              "duration": "38 min",
-              "stream_url": "https://s302d1.downet.net/download/1771282166/69924d76b63a9/El Maddah Ostouret El Ahd.S05E03.AKWAM.mp4",
-              "thumbnail": "https://c.top4top.io/p_3698oz5kb1.jpg"
-            },
-            {
-              "episode_number": 4,
-              "title": "اللغز العجيب",
-              "duration": "38 min",
-              "stream_url": "https://s302d2.downet.net/download/1771282333/69924e1de602a/El Maddah Ostouret El Ahd.S05E04.AKWAM.mp4",
-              "thumbnail": "https://c.top4top.io/p_3698oz5kb1.jpg"
-            },
-            {
-              "episode_number": 5,
-              "title": "مواجهة صابر المداح",
-              "duration": "38 min",
-              "stream_url": "https://s302d1.downet.net/download/1771282472/69924ea8e8658/Elmda7.S05E05.AKWAM.mp4",
-              "thumbnail": "https://c.top4top.io/p_3698oz5kb1.jpg"
-            },
-            {
-              "episode_number": 6,
-              "title": "مواجهة حاسمه",
-              "duration": "38 min",
-              "stream_url": "https://s302d1.downet.net/download/1771282472/69924ea8e8658/Elmda7.S05E05.AKWAM.mp4",
-              "thumbnail": "https://c.top4top.io/p_3698oz5kb1.jpg"
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
+  {
+    "name": "Brahmastra Part One",
+    "sources": [
+      { "label": "سيرفر 1", "url": "https://s302d1.downet.net/download/1771368092/69939d1c7e85d/Brahmastra.Part.One.Shiva.2022.1080p.WEB-DL.AKWAM.mp4" },
+       { "label": "سيرفر 2", "url": "https://s302d1.downet.net/download/1771368092/69939d1cad742/Brahmastra.Part.One.Shiva.2022.720p.WEB-DL.AKWAM.mp4" },
+       { "label": "سيرفر 3", "url": "https://s301d4.downet.net/download/1771368092/69939d1cd7ca2/Brahmastra.Part.One.Shiva.2022.480p.WEB-DL.AKWAM.mp4" }
+    ],
+    "img": "https://img.downet.net/uploads/1c1AZ.jpg",
+    "isSeries": false
+  },
+  {
+    "name": "فيلم 102 Not Out",
+    "sources": [
+      { "label": "سيرفر 1", "url": "https://s204d1.downet.net/download/1771368794/69939fda8116d/102.Not.Out.2018.720p.WEB-DL.AKWAM.mp4" }
+    ],
+    "img": "https://img.downet.net/uploads/l8OmQ.webp",
+    "isSeries": false
+  },
+  {
+    "name": "فيلم Baahubali: The Epic",
+    "sources": [
+      { "label": "سيرفر 1", "url": "https://s204d1.downet.net/download/1771368973/6993a08d2aee2/Baahubali The Epic (2025).1080p.WEB-DL.AKWAM.mp4" },
+       { "label": "سيرفر 2", "url": "https://s202d1.downet.net/download/1771368973/6993a08d5a5bd/Baahubali The Epic (2025.720p.WEB-DL.AKWAM.mp4" }
+    ],
+    "img": "https://img.downet.net/thumb/260x380/uploads/7ChI0.webp",
+    "isSeries": false
+  },
+  {
+    "name": "فيلم Gulabo Sitabo",
+    "sources": [
+      { "label": "سيرفر 1", "url": "https://s302d3.downet.net/download/1771199799/69910bb7d19c9/Rocky.El.Ghalaba.720p.WEB-DL.AKWAM.mp4" }
+    ],
+    "img": "https://img.downet.net/uploads/TkZ8t.jpeg",
+    "isSeries": false
+  },
+  {
+    "name": "فيلم سعد اليتيم",
+    "sources": [
+      { "label": "سيرفر 1", "url": "https://s301d4.downet.net/download/1771200664/69910f187dd78/Saad.Alyateem.1985.480P.WEB-DL.AKWAM.mp4" }
+    ],
+    "img": "https://a.top4top.io/p_3697km5wi1.jpg",
+    "isSeries": false
+  },
+  {
+    "name": "فيلم البعبع",
+    "sources": [
+      { "label": "سيرفر 1", "url": "https://s301d4.downet.net/download/1771201803/6991138b30d48/El.BoBo.2023.720P.HD.AKWAM.mp4" }
+    ],
+    "img": "https://j.top4top.io/p_3697uak9x1.jpg",
+    "isSeries": false
+  },
+  {
+    "name": "فيلم عنتر بن شداد",
+    "sources": [
+      { "label": "سيرفر 1", "url": "https://s302d1.downet.net/download/1771202593/699116a15bf10/Antar.Ibn.Shaddad.1961.480P.WEB-DL.AKWAM.mp4" }
+    ],
+    "img": "https://i.top4top.io/p_3697gax8t1.jpg",
+    "isSeries": false
+  },
+  {
+    "name": "فيلم كيره و الجن",
+    "sources": [
+      { "label": "سيرفر 1", "url": "https://s302d1.downet.net/download/1771203149/699118cd973a3/Kira.Wel.Gen.2022.720P.WEB-DL.AKWAM.mp4" }
+    ],
+    "img": "https://l.top4top.io/p_36988l30g1.jpg",
+    "isSeries": false
+  },
+  {
+    "name": "فيلم الرعب المصري الكلاسيكي التعويذه",
+    "sources": [
+      { "label": "سيرفر 1", "url": "https://s302d2.downet.net/download/1771203350/6991199631321/Altaawitha.1987.720P.WEB-DL.AKWAM.mp4" }
+    ],
+    "img": "https://c.top4top.io/p_3697zl4k31.jpg",
+    "isSeries": false
+  },
+  {
+    "name": "فيلم الكوميديا بعد الشر",
+    "sources": [
+      { "label": "سيرفر 1", "url": "https://s302d2.downet.net/download/1771203805/69911b5df3437/Ba3d.El.Shar.HDCAM.1080p.AKWAM.mp4" }
+    ],
+    "img": "https://j.top4top.io/p_3698l8w4k1.jpg",
+    "isSeries": false
+  },
+  {
+    "name": "فيلم هيبتا 2: المناظرة الأخيرة",
+    "sources": [
+      { "label": "سيرفر 1", "url": "https://s202d1.downet.net/download/1771204519/69911e27c0cc2/Hepta.2.720p.WEB-DL.AKWAM.mp4" }
+    ],
+    "img": "https://f.top4top.io/p_36970rqol1.jpeg",
+    "isSeries": false
+  },
+  {
+    "name": "فيلم الشاطر",
+    "sources": [
+      { "label": "سيرفر 1", "url": "https://s302d2.downet.net/download/1771204930/69911fc22c1ba/El.Shater.720p.WEB-DL.AKWAM.mp4" }
+    ],
+    "img": "https://i.top4top.io/p_3697beigw1.jpg",
+    "isSeries": false
+  },
+  {
+    "name": "فيلم درويش",
+    "sources": [
+      { "label": "سيرفر 1", "url": "https://s302d1.downet.net/download/1771205175/699120b76599f/Darweesh.720p.WEB-DL.AKWAM.mp4" }
+    ],
+    "img": "https://i.top4top.io/p_3697gmwcx1.jpg",
+    "isSeries": false
+  },
+  {
+    "name": "فيلم البحث عن منفذ لخروج السيد رامبو",
+    "sources": [
+      { "label": "سيرفر 1", "url": "https://s302d3.downet.net/download/1771205394/699121927f557/Seeking.Haven.For.Mr.Rambo.720p.WEB-DL.AKWAM.mp4" }
+    ],
+    "img": "https://k.top4top.io/p_3697l1rk01.jpg",
+    "isSeries": false
+  },
+  {
+    "name": "فيلم لعبة شيطان",
+    "sources": [
+      { "label": "سيرفر 1", "url": "https://s302d2.downet.net/download/1771207273/699128e9acf52/Devils.Game.2022.1080P.WEB-DL.AKWAM.mp4" }
+    ],
+    "img": "https://h.top4top.io/p_36978bnmz1.jpg",
+    "isSeries": false
+  },
+  {
+    "name": "فيلم بيت ست",
+    "sources": [
+      { "label": "سيرفر 1", "url": "https://s302d3.downet.net/download/1771210884/69913704ae01c/House.of.setnakht.2019.1080p.WEB-DL.AKWAM.mp4" }
+    ],
+    "img": "https://e.top4top.io/p_3698j9jq66.jpeg",
+    "isSeries": false
+  }
+]
