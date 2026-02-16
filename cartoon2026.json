@@ -3,7 +3,7 @@
     "name": "الفار الطبخ",
     "type": "كارتون",
     "img": "https://c.top4top.io/p_3693qekh51.jpg",
-   "onclick="loadIframe(this, 'https://smoothpre.com/v/nb0seff08t0d');"
+   "onclick="loadIframe(this, 'https://smoothpre.com/v/nb0seff08t0d)",
     "iframe": true
   },
   {
