@@ -1,20 +1,38 @@
 [
   {
-    "name": "فيلم F*ck Valentines Day",
-    "url": "https://s202d1.downet.net/download/1771557077/69967f5534442/F Valentine.1080.WEB-DL.AKWAM.mp4",
-    "img": "https://img.downet.net/thumb/260x380/uploads/fDqWs.webp",
+    "name": "فيلم Hercules",
+    "url": "https://s301d5.downet.net/download/1771972070/699cd46630c11/Hercules.2014.EXTENDED.720p.BluRay.AKWAM.mp4",
+    "img": "https://img.downet.net/thumb/260x380/uploads/5SEen.jpeg",
     "isSeries": false
   },
   {
-    "name": "فيلم Anaconda",
-    "url": "https://s202d1.downet.net/download/1771559998/69968abe2932b/Anaconda.2025.1080p.WEB-DL.AKWAM.mp4",
-    "img": "https://img.downet.net/thumb/260x380/uploads/akK14.webp",
+    "name": "فيلم The Hunger Games: Catching Fire",
+    "url": "https://s301d5.downet.net/download/1771972429/699cd5cd41341/The.Hunger.Games.Catching.Fire.2013.720p.BluRay.AKWAM.mp4",
+    "img": "https://img.downet.net/thumb/260x380/uploads/aQZeX.jpeg",
     "isSeries": false
   },
   {
-    "name": "فيلم The Time Machine",
-    "url": "https://s101.downet.net/download/1771560107/69968b2b2a3f3/The.Time.Machine.2002.WEB-DL.AKWAM.mp4",
-    "img": "https://img.downet.net/thumb/260x380/uploads/npWKc.webp",
+    "name": "فيلم The Hunger Games: Mockingjay - Part 1",
+    "url": "https://s301d5.downet.net/download/1771972169/699cd4c9ea529/The.Hunger.Games.Mockingjay.Part.1.2014.720p.BluRay.AKWAM.mp4",
+    "img": "https://img.downet.net/thumb/260x380/uploads/C7tLQ.jpeg",
+    "isSeries": false
+  },
+  {
+    "name": "فيلم The Hunger Games: Mockingjay - Part 2",
+    "url": "https://s301d5.downet.net/download/1771972302/699cd54eba185/The.Hunger.Games.Mockingjay.Part.2.2015.720p.BluRay.AKWAM.mp4",
+    "img": "https://img.downet.net/thumb/260x380/uploads/DXA4p.jpeg",
+    "isSeries": false
+  },
+  {
+    "name": "فيلم Maleficent: Mistress of Evil",
+    "url": "https://s301d5.downet.net/download/1771972517/699cd62505cf4/Maleficent.Mistress.of.Evil.2019.720p.BluRay.AKWAM.mp4",
+    "img": "https://img.downet.net/thumb/260x380/uploads/aaYtb.jpeg",
+    "isSeries": false
+  },
+  {
+    "name": "فيلم Jumanji: Welcome to the Jungle",
+    "url": "https://s302d6.downet.net/download/1771972720/699cd6f0b3125/Jumanji.Welcome.to.the.Jungle.2017.BluRay.720p.AKWAM.mp4",
+    "img": "https://img.downet.net/thumb/260x380/uploads/MWvAN.jpeg",
     "isSeries": false
   }
 ]
